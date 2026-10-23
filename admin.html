@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppzPlay — Panel de Control Administrativo</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-[#07090e] text-slate-100 min-h-screen">
+
+  <!-- MODAL DE LOGIN (Si no está autenticado) -->
+  <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div class="bg-[#0f172a] border border-cyan-500/30 rounded-3xl p-8 max-w-md w-full shadow-2xl text-center">
+      <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center mx-auto mb-4 text-2xl">
+        🔒
+      </div>
+      <h2 class="text-2xl font-black text-white">Panel de Administración</h2>
+      <p class="text-xs text-slate-400 mt-1 mb-6">Ingresa tu contraseña para editar el sitio web</p>
+      
+      <form id="login-form" class="space-y-4">
+        <div>
+          <input type="password" id="login-password" placeholder="Contraseña de administrador" class="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-400 text-center" required>
+        </div>
+        <p id="login-error" class="text-xs text-red-400 hidden">Contraseña incorrecta</p>
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 font-bold text-white text-sm shadow-lg shadow-cyan-500/30 transition-all">
+          Iniciar Sesión
+        </button>
+      </form>
+      <div class="text-[11px] text-slate-500 mt-4">
+        Contraseña por defecto: <code class="text-cyan-400">appzplay2026</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- APLICACIÓN PRINCIPAL (PANEL) -->
+  <div id="admin-app" class="hidden">
+    
+    <!-- Top Bar -->
+    <header class="sticky top-0 z-40 bg-[#0a0f1d]/90 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white shadow-md">
+          ⚡
+        </div>
+        <div>
+          <h1 class="text-lg font-black text-white">AppzPlay <span class="text-cyan-400 text-xs font-mono font-normal">| CMS Dashboard</span></h1>
+          <span class="text-[11px] text-slate-400">Administrador de contenidos visual sin código</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="/" target="_blank" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center gap-2 border border-white/10">
+          <i data-lucide="external-link" class="w-4 h-4 text-cyan-400"></i>
+          <span>Ver Sitio Web</span>
+        </a>
+
+        <button id="save-all-btn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black text-xs shadow-lg shadow-emerald-500/30 transition-transform hover:scale-105 flex items-center gap-2">
+          <i data-lucide="save" class="w-4 h-4"></i>
+          <span>Guardar Cambios</span>
+        </button>
+
+        <button id="logout-btn" class="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white border border-white/5" title="Cerrar sesión">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      
+      <!-- Navegación de Pestañas -->
+      <div class="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-slate-900/90 border border-white/10 mb-8 overflow-x-auto">
+        <button class="tab-btn active px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 whitespace-nowrap" data-tab="tab-general">
+          <i data-lucide="settings" class="w-4 h-4"></i> General & WhatsApp
+        </button>
+        <button class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-2 whitespace-nowrap" data-tab="tab-menu">
+          <i data-lucide="menu" class="w-4 h-4"></i> Menús del Sitio
+        </button>
+        <button class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-2 whitespace-nowrap" data-tab="tab-hero">
+          <i data-lucide="sparkles" class="w-4 h-4"></i> Portada (Hero)
+        </button>
+        <button class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-2 whitespace-nowrap" data-tab="tab-web">
+          <i data-lucide="layout" class="w-4 h-4"></i> Páginas Web (Base)
+        </button>
+        <button class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-2 whitespace-nowrap" data-tab="tab-services">
+          <i data-lucide="boxes" class="w-4 h-4"></i> Servicios Adicionales (Activar/Ocultar)
+        </button>
+        <button class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-2 whitespace-nowrap" data-tab="tab-faq">
+          <i data-lucide="help-circle" class="w-4 h-4"></i> Preguntas (FAQ)
+        </button>
+        <button class="tab-btn px-4 py-2.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-2 whitespace-nowrap" data-tab="tab-backup">
+          <i data-lucide="database" class="w-4 h-4"></i> Copia de Seguridad
+        </button>
+      </div>
+
+      <!-- CONTENIDO DE PESTAÑAS -->
+      <form id="content-form">
+        
+        <!-- TAB 1: General & Contacto -->
+        <div id="tab-general" class="tab-pane space-y-6">
+          <div class="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8 space-y-5">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i data-lucide="sliders" class="w-5 h-5 text-cyan-400"></i> Identidad y Contacto
+            </h3>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Nombre del Sitio</label>
+                <input type="text" id="cfg-sitename" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Eslogan / Subtítulo del Logo</label>
+                <input type="text" id="cfg-sitetagline" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Número de WhatsApp (con código de país, sin espacios ni +)</label>
+                <input type="text" id="cfg-whatsapp" placeholder="Ej: 573101234567" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-cyan-400">
+                <span class="text-[11px] text-slate-400">Aquí llegarán todas las solicitudes de alquiler de tus clientes.</span>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Estado de Servidores (Badge verde superior)</label>
+                <input type="text" id="cfg-status" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-cyan-400">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 pt-4 border-t border-white/5">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Texto de la Barra de Anuncio Superior</label>
+                <input type="text" id="cfg-announcement" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-cyan-400">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Etiqueta del Anuncio</label>
+                <input type="text" id="cfg-announcement-badge" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-cyan-400">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: Menús de Navegación -->
+        <div id="tab-menu" class="tab-pane hidden space-y-6">
+          <div class="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <i data-lucide="menu" class="w-5 h-5 text-cyan-400"></i> Menú de Navegación Superior
+                </h3>
+                <p class="text-xs text-slate-400 mt-1">Activa, desactiva o renombra los enlaces del encabezado.</p>
+              </div>
+              <button type="button" id="add-menu-btn" class="px-3.5 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500/30 border border-cyan-500/30 text-xs font-bold flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-4 h-4"></i> Agregar Enlace
+              </button>
+            </div>
+
+            <div id="menu-items-list" class="space-y-3">
+              <!-- Renderizado dinámicamente -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: Hero Section -->
+        <div id="tab-hero" class="tab-pane hidden space-y-6">
+          <div class="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-5 h-5 text-cyan-400"></i> Portada Principal (Hero)
+            </h3>
+
+            <div class="grid sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Línea 1 del Título</label>
+                <input type="text" id="hero-l1" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-cyan-300 mb-1">Línea 2 (Color Neón Resaltado)</label>
+                <input type="text" id="hero-l2" class="w-full bg-slate-950 border border-cyan-500/30 rounded-xl px-4 py-3 text-sm text-cyan-300">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Línea 3 del Título</label>
+                <input type="text" id="hero-l3" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1">Subtítulo Descriptivo</label>
+              <textarea id="hero-sub" rows="3" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white"></textarea>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Texto Botón Primario</label>
+                <input type="text" id="hero-cta-pri" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1">Texto Botón Secundario</label>
+                <input type="text" id="hero-cta-sec" class="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 text-sm text-white">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: Planes de Páginas Web en Alquiler -->
+        <div id="tab-web" class="tab-pane hidden space-y-6">
+          <div class="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8">
+            <div class="mb-6">
+              <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                <i data-lucide="layout" class="w-5 h-5 text-cyan-400"></i> Planes de Páginas Web en Alquiler Mensual
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">El servicio base que le ofreces a tus clientes: su página web por una cuota mensual.</p>
+            </div>
+
+            <div id="web-plans-list" class="grid md:grid-cols-2 gap-6">
+              <!-- Renderizado dinámico -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: Servicios y Módulos Adicionales (Activar / Ocultar) -->
+        <div id="tab-services" class="tab-pane hidden space-y-6">
+          <div class="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-white/10">
+              <div>
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <i data-lucide="boxes" class="w-5 h-5 text-purple-400"></i> Catálogo de Servicios & Módulos Adicionales
+                </h3>
+                <p class="text-xs text-slate-400 mt-1">
+                  Enciende o apaga servicios con el interruptor. Los servicios apagados <strong class="text-amber-400">NO se mostrarán</strong> a los clientes en la web.
+                </p>
+              </div>
+
+              <button type="button" id="add-service-btn" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold flex items-center gap-2 shadow-md">
+                <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                <span>Crear Nuevo Servicio</span>
+              </button>
+            </div>
+
+            <div id="services-list" class="space-y-6">
+              <!-- Renderizado dinámicamente con switch ON/OFF -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 6: Preguntas Frecuentes (FAQ) -->
+        <div id="tab-faq" class="tab-pane hidden space-y-6">
+          <div class="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                  <i data-lucide="help-circle" class="w-5 h-5 text-cyan-400"></i> Preguntas Frecuentes (FAQ)
+                </h3>
+                <p class="text-xs text-slate-400 mt-1">Aclara cómo funciona el alquiler mensual y los servicios adicionales.</p>
+              </div>
+              <button type="button" id="add-faq-btn" class="px-3.5 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500/30 border border-cyan-500/30 text-xs font-bold flex items-center gap-1.5">
+                <i data-lucide="plus" class="w-4 h-4"></i> Nueva Pregunta
+              </button>
+            </div>
+
+            <div id="faq-list" class="space-y-4">
+              <!-- Renderizado dinámico -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 7: Backup / Exportar / Importar -->
+        <div id="tab-backup" class="tab-pane hidden space-y-6">
+          <div class="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8 space-y-6">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i data-lucide="database" class="w-5 h-5 text-emerald-400"></i> Copia de Seguridad y Restauración
+            </h3>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="p-6 rounded-2xl bg-slate-950 border border-white/5 space-y-3">
+                <h4 class="font-bold text-white text-sm">Descargar Backup (JSON)</h4>
+                <p class="text-xs text-slate-400">Descarga un archivo con toda la configuración actual de tu sitio para guardarlo en tu computadora.</p>
+                <button type="button" id="export-json-btn" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold flex items-center gap-2 border border-white/10">
+                  <i data-lucide="download" class="w-4 h-4 text-cyan-400"></i>
+                  <span>Descargar Copia de Seguridad</span>
+                </button>
+              </div>
+
+              <div class="p-6 rounded-2xl bg-slate-950 border border-white/5 space-y-3">
+                <h4 class="font-bold text-white text-sm">Restaurar desde archivo JSON</h4>
+                <p class="text-xs text-slate-400">Carga un archivo de respaldo previo para restaurar todos los textos y servicios.</p>
+                <input type="file" id="import-json-input" accept=".json" class="hidden">
+                <button type="button" onclick="document.getElementById('import-json-input').click()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold flex items-center gap-2 border border-white/10">
+                  <i data-lucide="upload" class="w-4 h-4 text-purple-400"></i>
+                  <span>Subir Archivo de Respaldo</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICACIÓN -->
+  <div id="admin-toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-emerald-500/50 text-emerald-200 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm hidden">
+    <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+    <span id="toast-message">Guardado exitosamente</span>
+  </div>
+
+  <script>
+    let appContent = {};
+    let authToken = localStorage.getItem('appzplay_admin_token') || '';
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initTabs();
+      checkAuth();
+    });
+
+    // Pestañas
+    function initTabs() {
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const target = tab.getAttribute('data-tab');
+          document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+          document.getElementById(target)?.classList.remove('hidden');
+        });
+      });
+    }
+
+    // Autenticación
+    function checkAuth() {
+      const loginModal = document.getElementById('login-modal');
+      const adminApp = document.getElementById('admin-app');
+
+      if (!authToken) {
+        loginModal.classList.remove('hidden');
+        adminApp.classList.add('hidden');
+      } else {
+        loginModal.classList.add('hidden');
+        adminApp.classList.remove('hidden');
+        loadData();
+      }
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const pwd = document.getElementById('login-password').value;
+      const errorMsg = document.getElementById('login-error');
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pwd })
+        });
+        const data = await res.json();
+        if (data.success) {
+          authToken = data.token;
+          localStorage.setItem('appzplay_admin_token', authToken);
+          checkAuth();
+        } else {
+          errorMsg.classList.remove('hidden');
+        }
+      } catch (err) {
+        // En caso de modo estático o offline, verificar contraseña local
+        if (pwd === 'appzplay2026') {
+          authToken = 'appzplay2026';
+          localStorage.setItem('appzplay_admin_token', authToken);
+          checkAuth();
+        } else {
+          errorMsg.classList.remove('hidden');
+        }
+      }
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      localStorage.removeItem('appzplay_admin_token');
+      authToken = '';
+      checkAuth();
+    });
+
+    // Cargar datos del servidor
+    async function loadData() {
+      try {
+        const res = await fetch('/api/content');
+        appContent = await res.json();
+      } catch (e) {
+        console.warn('Cargando contenido por defecto');
+      }
+      populateForms();
+    }
+
+    // Llenar formularios con los datos
+    function populateForms() {
+      const g = appContent.general || {};
+      document.getElementById('cfg-sitename').value = g.siteName || 'AppzPlay';
+      document.getElementById('cfg-sitetagline').value = g.siteTagline || 'Páginas Web & Servicios en Alquiler Mensual';
+      document.getElementById('cfg-whatsapp').value = g.whatsappPhone || '573000000000';
+      document.getElementById('cfg-status').value = g.serverStatusText || 'VPS 100% Operativo';
+      document.getElementById('cfg-announcement').value = g.announcementText || '';
+      document.getElementById('cfg-announcement-badge').value = g.announcementBadge || 'Modelo de Alquiler';
+
+      // Hero
+      const h = appContent.hero || {};
+      document.getElementById('hero-l1').value = h.titleLine1 || 'Tu Página Web Profesional';
+      document.getElementById('hero-l2').value = h.titleLine2 || 'en Alquiler Mensual';
+      document.getElementById('hero-l3').value = h.titleLine3 || 'y Servicios a tu Medida.';
+      document.getElementById('hero-sub').value = h.subtitle || '';
+      document.getElementById('hero-cta-pri').value = h.ctaTextPrimary || 'Alquilar mi Página Web';
+      document.getElementById('hero-cta-sec').value = h.ctaTextSecondary || 'Ver Servicios Adicionales';
+
+      // Menús
+      renderMenuList();
+      // Planes Web
+      renderWebPlansList();
+      // Servicios
+      renderServicesList();
+      // FAQ
+      renderFaqList();
+
+      lucide.createIcons();
+    }
+
+    // Renderizar lista de menú
+    function renderMenuList() {
+      const container = document.getElementById('menu-items-list');
+      container.innerHTML = '';
+      (appContent.menu || []).forEach((item, idx) => {
+        const div = document.createElement('div');
+        div.className = 'flex items-center gap-3 p-3.5 rounded-2xl bg-slate-950 border border-white/5';
+        div.innerHTML = `
+          <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-300">
+            <input type="checkbox" class="menu-enable-cb w-4 h-4 rounded text-cyan-500 bg-slate-900 border-white/20" data-idx="${idx}" ${item.enabled ? 'checked' : ''}>
+            <span>Visible</span>
+          </label>
+          <input type="text" class="menu-label-input flex-1 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-white" value="${item.label}" data-idx="${idx}" placeholder="Texto del enlace">
+          <input type="text" class="menu-url-input w-48 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-mono text-cyan-300" value="${item.url}" data-idx="${idx}" placeholder="#seccion">
+          <button type="button" class="del-menu-btn text-slate-500 hover:text-red-400 p-2" data-idx="${idx}">✕</button>
+        `;
+        container.appendChild(div);
+      });
+
+      container.querySelectorAll('.del-menu-btn').forEach(b => {
+        b.onclick = () => {
+          appContent.menu.splice(b.getAttribute('data-idx'), 1);
+          renderMenuList();
+        };
+      });
+    }
+
+    document.getElementById('add-menu-btn').onclick = () => {
+      if (!appContent.menu) appContent.menu = [];
+      appContent.menu.push({ id: 'm' + Date.now(), label: 'Nuevo Enlace', url: '#seccion', enabled: true });
+      renderMenuList();
+    };
+
+    // Renderizar Planes Web
+    function renderWebPlansList() {
+      const container = document.getElementById('web-plans-list');
+      container.innerHTML = '';
+      (appContent.webPlans || []).forEach((p, idx) => {
+        const div = document.createElement('div');
+        div.className = 'p-6 rounded-3xl bg-slate-950 border border-white/10 space-y-4';
+        div.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase text-cyan-400">Plan Web #${idx + 1}</span>
+            <label class="flex items-center gap-2 text-xs font-bold cursor-pointer">
+              <input type="checkbox" class="webplan-feat-cb w-4 h-4 rounded" data-idx="${idx}" ${p.featured ? 'checked' : ''}>
+              <span>Destacado (Recomendado)</span>
+            </label>
+          </div>
+          <div>
+            <label class="text-[11px] font-bold text-slate-400 block mb-1">Nombre del Plan</label>
+            <input type="text" class="webplan-name w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white font-bold" value="${p.name}" data-idx="${idx}">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="text-[11px] font-bold text-slate-400 block mb-1">Precio Mensual ($ USD)</label>
+              <input type="number" class="webplan-price w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white font-bold" value="${p.price}" data-idx="${idx}">
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-slate-400 block mb-1">Costo de Setup</label>
+              <input type="text" class="webplan-setup w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-emerald-400" value="${p.setup}" data-idx="${idx}">
+            </div>
+          </div>
+          <div>
+            <label class="text-[11px] font-bold text-slate-400 block mb-1">Beneficios (Uno por línea)</label>
+            <textarea class="webplan-features w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-slate-300" rows="5" data-idx="${idx}">${(p.features || []).join('\n')}</textarea>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Renderizar Servicios Adicionales (Con interruptor ON/OFF para ocultar los que no tienen listos)
+    function renderServicesList() {
+      const container = document.getElementById('services-list');
+      container.innerHTML = '';
+
+      (appContent.services || []).forEach((s, idx) => {
+        const div = document.createElement('div');
+        div.className = `p-6 rounded-3xl border transition-all ${s.enabled ? 'bg-slate-950 border-cyan-500/30' : 'bg-slate-950/40 border-white/5 opacity-70'}`;
+        div.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/5 mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Switch de Encendido / Apagado -->
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="service-toggle sr-only peer" data-idx="${idx}" ${s.enabled ? 'checked' : ''}>
+                <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+              </label>
+              <div>
+                <span class="text-sm font-bold text-white">${s.title}</span>
+                <span class="text-xs ml-2 font-mono ${s.enabled ? 'text-emerald-400' : 'text-amber-400'}">
+                  ${s.enabled ? '● ACTIVO (Visible en la web)' : '○ APAGADO (Oculto al público)'}
+                </span>
+              </div>
+            </div>
+
+            <button type="button" class="del-service-btn text-xs font-semibold text-red-400 hover:text-red-300 px-3 py-1.5 rounded-lg bg-red-950/20 border border-red-500/20" data-idx="${idx}">
+              Eliminar Servicio
+            </button>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4 mb-4">
+            <div>
+              <label class="text-[11px] font-bold text-slate-400 block mb-1">Título del Módulo</label>
+              <input type="text" class="svc-title w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-white font-bold" value="${s.title}" data-idx="${idx}">
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-slate-400 block mb-1">Precio Mensual Adicional ($ USD/mes)</label>
+              <input type="number" class="svc-price w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-white font-bold" value="${s.monthlyPrice}" data-idx="${idx}">
+            </div>
+            <div>
+              <label class="text-[11px] font-bold text-slate-400 block mb-1">Etiqueta / Badge</label>
+              <input type="text" class="svc-badge w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-cyan-300" value="${s.badge || ''}" data-idx="${idx}">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="text-[11px] font-bold text-slate-400 block mb-1">Descripción del Servicio</label>
+            <textarea class="svc-desc w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-slate-300" rows="2" data-idx="${idx}">${s.description || ''}</textarea>
+          </div>
+
+          <div>
+            <label class="text-[11px] font-bold text-slate-400 block mb-1">Características (Una por línea)</label>
+            <textarea class="svc-features w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-slate-300" rows="3" data-idx="${idx}">${(s.features || []).join('\n')}</textarea>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      // Eventos para el switch
+      container.querySelectorAll('.service-toggle').forEach(t => {
+        t.onchange = () => {
+          const idx = t.getAttribute('data-idx');
+          appContent.services[idx].enabled = t.checked;
+          renderServicesList();
+        };
+      });
+
+      // Eventos eliminar
+      container.querySelectorAll('.del-service-btn').forEach(b => {
+        b.onclick = () => {
+          if (confirm('¿Eliminar este servicio del catálogo?')) {
+            appContent.services.splice(b.getAttribute('data-idx'), 1);
+            renderServicesList();
+          }
+        };
+      });
+    }
+
+    // Agregar nuevo servicio
+    document.getElementById('add-service-btn').onclick = () => {
+      if (!appContent.services) appContent.services = [];
+      appContent.services.unshift({
+        id: 'serv-' + Date.now(),
+        title: 'Nuevo Servicio o Módulo',
+        category: 'custom',
+        tagline: 'Descripción corta del servicio',
+        monthlyPrice: 15,
+        badge: 'Nuevo ⭐',
+        description: 'Detalle de qué resuelve este servicio para el cliente.',
+        enabled: true,
+        features: ['Característica 1', 'Característica 2', 'Soporte y hosting']
+      });
+      renderServicesList();
+    };
+
+    // Renderizar Preguntas Frecuentes
+    function renderFaqList() {
+      const container = document.getElementById('faq-list');
+      container.innerHTML = '';
+      (appContent.faq || []).forEach((f, idx) => {
+        const div = document.createElement('div');
+        div.className = 'p-5 rounded-2xl bg-slate-950 border border-white/5 space-y-3';
+        div.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-cyan-400">Pregunta #${idx + 1}</span>
+            <button type="button" class="del-faq-btn text-slate-500 hover:text-red-400 text-xs" data-idx="${idx}">Eliminar</button>
+          </div>
+          <input type="text" class="faq-q w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-white font-bold" value="${f.question}" data-idx="${idx}">
+          <textarea class="faq-a w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs text-slate-300" rows="2" data-idx="${idx}">${f.answer}</textarea>
+        `;
+        container.appendChild(div);
+      });
+
+      container.querySelectorAll('.del-faq-btn').forEach(b => {
+        b.onclick = () => {
+          appContent.faq.splice(b.getAttribute('data-idx'), 1);
+          renderFaqList();
+        };
+      });
+    }
+
+    document.getElementById('add-faq-btn').onclick = () => {
+      if (!appContent.faq) appContent.faq = [];
+      appContent.faq.push({ id: 'faq' + Date.now(), question: '¿Nueva pregunta?', answer: 'Respuesta explicativa...' });
+      renderFaqList();
+    };
+
+    // Guardar cambios en el servidor
+    document.getElementById('save-all-btn').onclick = async () => {
+      collectFormData();
+
+      try {
+        const res = await fetch('/api/content', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + authToken
+          },
+          body: JSON.stringify(appContent)
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          showToast('¡Todos los cambios se guardaron y ya están visibles en la web!');
+        } else {
+          showToast('Error al guardar: ' + data.message, true);
+        }
+      } catch (err) {
+        showToast('Guardado localmente. Asegúrate de que el servidor esté activo.', false);
+      }
+    };
+
+    // Recolectar datos de los formularios
+    function collectFormData() {
+      // General
+      appContent.general = {
+        siteName: document.getElementById('cfg-sitename').value,
+        siteTagline: document.getElementById('cfg-sitetagline').value,
+        whatsappPhone: document.getElementById('cfg-whatsapp').value,
+        serverStatusText: document.getElementById('cfg-status').value,
+        announcementText: document.getElementById('cfg-announcement').value,
+        announcementBadge: document.getElementById('cfg-announcement-badge').value
+      };
+
+      // Hero
+      appContent.hero = {
+        titleLine1: document.getElementById('hero-l1').value,
+        titleLine2: document.getElementById('hero-l2').value,
+        titleLine3: document.getElementById('hero-l3').value,
+        subtitle: document.getElementById('hero-sub').value,
+        ctaTextPrimary: document.getElementById('hero-cta-pri').value,
+        ctaTextSecondary: document.getElementById('hero-cta-sec').value
+      };
+
+      // Menús
+      document.querySelectorAll('#menu-items-list > div').forEach((row, idx) => {
+        if (appContent.menu[idx]) {
+          appContent.menu[idx].enabled = row.querySelector('.menu-enable-cb').checked;
+          appContent.menu[idx].label = row.querySelector('.menu-label-input').value;
+          appContent.menu[idx].url = row.querySelector('.menu-url-input').value;
+        }
+      });
+
+      // Planes Web
+      document.querySelectorAll('#web-plans-list > div').forEach((card, idx) => {
+        if (appContent.webPlans[idx]) {
+          appContent.webPlans[idx].featured = card.querySelector('.webplan-feat-cb').checked;
+          appContent.webPlans[idx].name = card.querySelector('.webplan-name').value;
+          appContent.webPlans[idx].price = Number(card.querySelector('.webplan-price').value);
+          appContent.webPlans[idx].setup = card.querySelector('.webplan-setup').value;
+          appContent.webPlans[idx].features = card.querySelector('.webplan-features').value.split('\n').filter(Boolean);
+        }
+      });
+
+      // Servicios
+      document.querySelectorAll('#services-list > div').forEach((card, idx) => {
+        if (appContent.services[idx]) {
+          appContent.services[idx].title = card.querySelector('.svc-title').value;
+          appContent.services[idx].monthlyPrice = Number(card.querySelector('.svc-price').value);
+          appContent.services[idx].badge = card.querySelector('.svc-badge').value;
+          appContent.services[idx].description = card.querySelector('.svc-desc').value;
+          appContent.services[idx].features = card.querySelector('.svc-features').value.split('\n').filter(Boolean);
+        }
+      });
+
+      // FAQ
+      document.querySelectorAll('#faq-list > div').forEach((card, idx) => {
+        if (appContent.faq[idx]) {
+          appContent.faq[idx].question = card.querySelector('.faq-q').value;
+          appContent.faq[idx].answer = card.querySelector('.faq-a').value;
+        }
+      });
+    }
+
+    // Exportar / Importar
+    document.getElementById('export-json-btn').onclick = () => {
+      collectFormData();
+      const blob = new Blob([JSON.stringify(appContent, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `appzplay-backup-${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+    };
+
+    document.getElementById('import-json-input').onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          appContent = JSON.parse(event.target.result);
+          populateForms();
+          showToast('Archivo de respaldo cargado. Dale a "Guardar Cambios" para aplicarlo.');
+        } catch (err) {
+          alert('Archivo JSON no válido');
+        }
+      };
+      reader.readAsText(file);
+    };
+
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('admin-toast');
+      const text = document.getElementById('toast-message');
+      text.textContent = msg;
+      toast.className = `fixed bottom-6 right-6 z-50 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-sm border ${isError ? 'bg-red-950 border-red-500 text-red-200' : 'bg-slate-900 border-emerald-500 text-emerald-200'}`;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 4000);
+    }
+  </script>
+</body>
+</html>

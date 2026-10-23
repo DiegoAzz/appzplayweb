@@ -1,0 +1,165 @@
+{
+  "general": {
+    "siteName": "AppzPlay",
+    "siteTagline": "Páginas Web & Servicios en Alquiler Mensual",
+    "whatsappPhone": "573000000000",
+    "serverStatusText": "VPS 100% Operativo",
+    "announcementText": "🚀 Tu Página Web Lista Sin Costo Inicial: Paga solo una cuota mensual accesible",
+    "announcementBadge": "Modelo de Alquiler"
+  },
+  "menu": [
+    { "id": "m1", "label": "Páginas Web en Alquiler", "url": "#web-alquiler", "enabled": true },
+    { "id": "m2", "label": "Servicios Adicionales", "url": "#servicios-adicionales", "enabled": true },
+    { "id": "m3", "label": "¿Por qué Alquilar?", "url": "#por-que-alquilar", "enabled": true },
+    { "id": "m4", "label": "Calculadora de Cuota", "url": "#calculadora", "enabled": true },
+    { "id": "m5", "label": "Preguntas Frecuentes", "url": "#faq", "enabled": true }
+  ],
+  "hero": {
+    "titleLine1": "Tu Página Web Profesional",
+    "titleLine2": "en Alquiler Mensual",
+    "titleLine3": "y Servicios a tu Medida.",
+    "subtitle": "No pagues $1,500 o $3,000 USD de golpe. Te creamos tu sitio web profesional por una cuota mensual mínima y fija. Y si necesitas más, sumas servicios adicionales (pedidos, citas, IA) cuando tu negocio lo requiera.",
+    "ctaTextPrimary": "Alquilar mi Página Web",
+    "ctaTextSecondary": "Ver Servicios Adicionales"
+  },
+  "webPlans": [
+    {
+      "id": "web-landing",
+      "name": "Página Web Esencial",
+      "subtitle": "Ideal para presencia profesional y captar clientes",
+      "price": 15,
+      "period": "USD / mes",
+      "setup": "$0 de costo de diseño inicial",
+      "featured": false,
+      "enabled": true,
+      "features": [
+        "Diseño web One-Page moderno y adaptado a móviles",
+        "Alojamiento de alta velocidad en servidor VPS incluido",
+        "Certificado de seguridad SSL (HTTPS) gratis",
+        "Botón directo de WhatsApp y llamada a la acción",
+        "Mantenimiento continuo y cambios mensuales incluidos",
+        "Sin permanencia obligatoria, cancela cuando quieras"
+      ]
+    },
+    {
+      "id": "web-pro",
+      "name": "Página Web Comercial Pro",
+      "subtitle": "Para negocios que quieren dominar su mercado",
+      "price": 25,
+      "period": "USD / mes",
+      "setup": "$0 de costo de diseño inicial",
+      "featured": true,
+      "enabled": true,
+      "features": [
+        "Sitio web completo multi-sección con diseño a medida",
+        "Dominio propio .com incluido",
+        "Optimización de velocidad y SEO en Google",
+        "Formularios de contacto y cotización interactivos",
+        "VPS dedicado y copias de seguridad automáticas diarias",
+        "Soporte prioritario 7 días a la semana"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "id": "comidaya",
+      "title": "Módulo ComidaYa (Restaurantes & Delivery)",
+      "category": "gastronomia",
+      "tagline": "Tu propio canal de pedidos web sin comisiones",
+      "monthlyPrice": 19,
+      "badge": "Módulo Gastronómico 🔥",
+      "description": "Agrégale a tu web un menú digital QR interactivo, carrito de pedidos a WhatsApp, pantalla KDS para la cocina e impresión de tickets térmicos.",
+      "enabled": true,
+      "features": [
+        "Menú QR para mesas y redes sociales",
+        "Pantalla KDS en tiempo real para cocina",
+        "Impresión de comandas térmicas 80mm/58mm",
+        "0% de comisiones por tus ventas"
+      ]
+    },
+    {
+      "id": "turnoya",
+      "title": "Módulo TurnoYa (Citas & Reservas Online)",
+      "category": "citas",
+      "tagline": "Agenda automatizada 24/7 para tus clientes",
+      "monthlyPrice": 15,
+      "badge": "Para Profesionales ⭐",
+      "description": "Tus clientes reservan citas y turnos desde tu página web las 24 horas. Incluye recordatorios automáticos por WhatsApp y control de especialistas.",
+      "enabled": true,
+      "features": [
+        "Reservas online en tiempo real 24/7",
+        "Recordatorios automáticos por WhatsApp",
+        "Gestión de múltiples profesionales y horarios",
+        "Panel de control de ingresos y citas"
+      ]
+    },
+    {
+      "id": "newsflow",
+      "title": "Módulo NewsFlow AI (Redacción & Noticias IA)",
+      "category": "ia",
+      "tagline": "Contenido automatizado para tu portal",
+      "monthlyPrice": 25,
+      "badge": "Potenciado con IA ⚡",
+      "description": "Monitorea fuentes y redacta artículos optimizados para SEO de manera automática para mantener tu web siempre actualizada.",
+      "enabled": true,
+      "features": [
+        "Detección y resumen de noticias 24/7",
+        "Reescritura inteligente anti-plagio con IA",
+        "Publicación programada en tu web",
+        "Ahorro de redactores externos"
+      ]
+    },
+    {
+      "id": "spextractor",
+      "title": "Módulo SpExtractor (Extracción de Datos)",
+      "category": "ia",
+      "tagline": "Automatización y procesamiento de catálogos",
+      "monthlyPrice": 22,
+      "badge": "Productividad",
+      "description": "Extracción y ordenamiento masivo de listados, productos y bases de datos estructuradas exportables a Excel.",
+      "enabled": false,
+      "features": [
+        "Extracción masiva ultrarrápida",
+        "Exportación a Excel, CSV y JSON",
+        "Cero mantenimiento técnico de tu parte"
+      ]
+    },
+    {
+      "id": "custom",
+      "title": "Servicio o Módulo a Medida",
+      "category": "custom",
+      "tagline": "¿Necesitas una función específica? La creamos y la sumas a tu alquiler",
+      "monthlyPrice": 30,
+      "badge": "Bajo Demanda 💡",
+      "description": "Si tu negocio necesita un sistema de cotizaciones, portal de clientes o módulo especial, lo programamos y lo sumamos a tu cuota mensual.",
+      "enabled": true,
+      "features": [
+        "Sin costo astronómico de desarrollo",
+        "Totalmente integrado a tu página web",
+        "Mantenimiento continuo incluido"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "id": "faq1",
+      "question": "¿Cómo funciona el alquiler de mi página web?",
+      "answer": "Diseñamos y ponemos en marcha tu página web profesional con $0 de costo de desarrollo inicial. Solo pagas una cómoda cuota mensual fija que incluye el diseño, servidor VPS, seguridad SSL, mantenimiento continuo y soporte."
+    },
+    {
+      "id": "faq2",
+      "question": "¿Puedo agregar o quitar servicios adicionales cuando quiera?",
+      "answer": "¡Sí! Puedes empezar solo con tu página web y más adelante sumarle pedidos para restaurantes (ComidaYa), sistema de turnos (TurnoYa) o funciones de IA según las necesidades de tu negocio."
+    },
+    {
+      "id": "faq3",
+      "question": "¿Hay contratos de permanencia obligatoria?",
+      "answer": "No. Pagas mes a mes. Si en algún momento no deseas continuar, puedes cancelar tu suscripción avisándonos antes del siguiente ciclo sin multas ni cobros sorpresa."
+    },
+    {
+      "id": "faq4",
+      "question": "¿Puedo usar mi propio dominio (.com o .co)?",
+      "answer": "Sí, podemos conectar tu propio dominio oficial o proporcionarte uno con certificado SSL seguro garantizado."
+    }
+  ]
+}

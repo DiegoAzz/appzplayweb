@@ -1,18 +1,18 @@
-# Production Nginx image for AppzPlay Landing Page
-FROM nginx:alpine
+# Contenedor Node.js Ultraligero para AppzPlay (Landing Page + CMS Dashboard)
+FROM node:20-alpine
 
-# Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
+WORKDIR /app
 
-# Copy custom nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copiar todos los archivos del proyecto
+COPY . .
 
-# Copy website files
-COPY index.html /usr/share/nginx/html/
-COPY css /usr/share/nginx/html/css
-COPY js /usr/share/nginx/html/js
-COPY assets /usr/share/nginx/html/assets
+# Variables de entorno
+ENV PORT=80
+ENV NODE_ENV=production
+ENV ADMIN_PASSWORD=appzplay2026
 
+# Puerto 80 expuesto para Coolify / Traefik
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+# Arranca el servidor nativo Node.js sin dependencias externas
+CMD ["node", "server.js"]
