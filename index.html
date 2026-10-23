@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppzPlay — Alquiler de Aplicaciones y Servicios SaaS para Negocios</title>
+  <meta name="description" content="No compres software caro. En AppzPlay alquilamos aplicaciones listas para usar a precios cómodos y accesibles para toda la comunidad. Restaurantes, citas, IA y más.">
+  <meta name="keywords" content="alquiler de software, saas en alquiler, apps para restaurantes, agendamiento turnos, apps baratas, software accesible pymes, coolify vps">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="AppzPlay — Alquiler de Servicios de Aplicaciones">
+  <meta property="og:description" content="En vez de gastar miles de dólares comprando software, alquila la app lista para tu negocio por una cuota mínima mensual.">
+  <meta property="og:url" content="https://appzplay.online/">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#06b6d4',
+              purple: '#8b5cf6',
+              emerald: '#10b981',
+              dark: '#07090e',
+              card: '#0f172a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2306b6d4'/><text y='65' x='50' text-anchor='middle' font-size='55' fill='white' font-family='sans-serif' font-weight='bold'>A</text></svg>">
+</head>
+<body class="bg-[#07090e] text-slate-100 cyber-grid relative min-h-screen">
+
+  <!-- Ambient Glows -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] radial-glow-cyan pointer-events-none -z-10"></div>
+  <div class="fixed top-1/3 right-0 w-[500px] h-[500px] radial-glow-purple pointer-events-none -z-10"></div>
+  <div class="fixed bottom-10 left-0 w-[450px] h-[450px] radial-glow-emerald pointer-events-none -z-10"></div>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 w-full border-b border-white/10 bg-[#07090e]/80 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-purple-600 flex items-center justify-center font-black text-xl text-white shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
+          ⚡
+        </div>
+        <div>
+          <span class="text-2xl font-black tracking-tight text-white">Appz<span class="text-gradient-cyan">Play</span></span>
+          <span class="block text-[10px] uppercase font-bold tracking-widest text-cyan-400">Software en Alquiler</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#catalogo" class="hover:text-cyan-400 transition-colors">Catálogo de Apps</a>
+        <a href="#por-que-alquilar" class="hover:text-cyan-400 transition-colors">¿Por qué Alquilar?</a>
+        <a href="#calculadora" class="hover:text-cyan-400 transition-colors">Calculadora de Ahorro</a>
+        <a href="#planes" class="hover:text-cyan-400 transition-colors">Planes</a>
+        <a href="#faq" class="hover:text-cyan-400 transition-colors">Preguntas Frecuentes</a>
+      </div>
+
+      <!-- Header CTAs -->
+      <div class="hidden sm:flex items-center gap-4">
+        <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>VPS 100% Operativo</span>
+        </div>
+        <button onclick="openWhatsApp('¡Hola AppzPlay! Quiero información para alquilar una app para mi negocio.')" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-cyan-500/25 transition-all hover:scale-[1.02] active:scale-95 flex items-center gap-2">
+          <span>Alquilar Ahora</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-800/80 border border-white/10 text-slate-200">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-white/10 bg-[#090d16] px-6 py-5 space-y-4">
+      <a href="#catalogo" class="block text-slate-300 hover:text-cyan-400 font-medium">Catálogo de Apps</a>
+      <a href="#por-que-alquilar" class="block text-slate-300 hover:text-cyan-400 font-medium">¿Por qué Alquilar?</a>
+      <a href="#calculadora" class="block text-slate-300 hover:text-cyan-400 font-medium">Calculadora de Ahorro</a>
+      <a href="#planes" class="block text-slate-300 hover:text-cyan-400 font-medium">Planes</a>
+      <a href="#faq" class="block text-slate-300 hover:text-cyan-400 font-medium">Preguntas Frecuentes</a>
+      <button onclick="openWhatsApp('¡Hola AppzPlay! Quiero alquilar una app para mi negocio.')" class="w-full mt-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
+        <span>Alquilar Ahora por WhatsApp</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Top Announcement Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-semibold mb-8 animate-float">
+        <span class="flex h-2 w-2 rounded-full bg-cyan-400"></span>
+        <span>Revolución SaaS para la Comunidad: En vez de comprar, ¡alquila todo!</span>
+        <span class="text-xs bg-cyan-500/20 px-2 py-0.5 rounded-md text-cyan-200">100% Accesible</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
+        No compres software caro.<br>
+        <span class="text-gradient-cyan">Alquila aplicaciones listas</span> para tu negocio.
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        ¿Por qué pagar <strong class="text-white">$3,000 o $10,000 USD</strong> a una agencia cuando puedes tener un sistema profesional <strong class="text-cyan-400">en alquiler por una mínima cuota mensual</strong>? Todo incluido: VPS de alto rendimiento, soporte, actualizaciones y cero contratos amarrados.
+      </p>
+
+      <!-- CTA Buttons Group -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none">
+        <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-base shadow-xl shadow-cyan-500/30 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
+          <i data-lucide="layout-grid" class="w-5 h-5"></i>
+          <span>Explorar Catálogo en Alquiler</span>
+        </a>
+        
+        <a href="#calculadora" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-white/15 font-semibold text-base transition-all hover:border-cyan-500/50 flex items-center justify-center gap-3">
+          <i data-lucide="calculator" class="w-5 h-5 text-cyan-400"></i>
+          <span>Calcular mi Ahorro</span>
+        </a>
+      </div>
+
+      <!-- Micro Badges / Social Proof -->
+      <div class="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+            <i data-lucide="badge-dollar-sign" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-white">$0 Inversión Inicial</div>
+            <div class="text-xs text-slate-400">Sin anticipos abusivos</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+            <i data-lucide="zap" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-white">&lt; 24 Horas</div>
+            <div class="text-xs text-slate-400">Listo para operar ya</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <i data-lucide="server" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-white">VPS & SSL Incluido</div>
+            <div class="text-xs text-slate-400">Cero líos de hosting</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400">
+            <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-white">Cancela Cuando Quieras</div>
+            <div class="text-xs text-slate-400">Sin amarras ni penalidad</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- COMPARISON SECTION: Comprar vs Alquilar con AppzPlay -->
+  <section id="por-que-alquilar" class="py-20 relative border-t border-b border-white/10 bg-[#090d16]/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="badge-chip text-cyan-400 border-cyan-500/30 bg-cyan-950/40">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i> Comparativa Real
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">
+          ¿Comprar Software o <span class="text-gradient-cyan">Alquilarlo con AppzPlay</span>?
+        </h2>
+        <p class="mt-4 text-slate-300 text-base sm:text-lg">
+          Tradicionalmente te obligan a endeudarte para tener una app. Nuestro modelo de alquiler está diseñado para proteger tu dinero y ayudarte a crecer sin riesgos.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Modelo Tradicional (Comprar) -->
+        <div class="glass-card-static rounded-3xl p-8 border-red-500/20 bg-gradient-to-b from-red-950/10 to-transparent relative">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold mb-4">
+            <i data-lucide="x-circle" class="w-4 h-4"></i> Comprar / Mandar a Desarrollar
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Desarrollo Tradicional</h3>
+          <p class="text-slate-400 text-sm mb-6">El modelo obsoleto donde asumes todo el riesgo financiero.</p>
+
+          <ul class="space-y-4 text-sm text-slate-300">
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 font-bold">✕</span>
+              <div><strong class="text-white">Costo inicial brutal:</strong> De $3,000 a $10,000 USD por adelantado.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 font-bold">✕</span>
+              <div><strong class="text-white">Meses de espera:</strong> 3 a 6 meses para tener algo a medias y con errores.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 font-bold">✕</span>
+              <div><strong class="text-white">Gastos ocultos:</strong> Tú pagas servidores caros, dominios, licencias y certificados SSL.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 font-bold">✕</span>
+              <div><strong class="text-white">Cobro por cada cambio:</strong> Cualquier modificación te la cobran como un proyecto nuevo.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-red-400 font-bold">✕</span>
+              <div><strong class="text-white">Obsolescencia rápida:</strong> En 1 o 2 años el código queda viejo y nadie lo mantiene.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Modelo AppzPlay (Alquiler) -->
+        <div class="glass-card rounded-3xl p-8 border-cyan-500/40 bg-gradient-to-b from-cyan-950/30 via-slate-900/60 to-slate-900/80 relative overflow-hidden glow-cyan-border">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 text-xs font-bold mb-4">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i> Modelo AppzPlay (100% Alquiler)
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Alquiler de Soluciones SaaS</h3>
+          <p class="text-cyan-200 text-sm mb-6">Paga solo por lo que usas, a precio cómodo para tu comunidad.</p>
+
+          <ul class="space-y-4 text-sm text-slate-200">
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">✔</span>
+              <div><strong class="text-white">Desde $15 a $25 USD/mes:</strong> Tu flujo de caja intacto, sin pedir préstamos.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">✔</span>
+              <div><strong class="text-white">Listo en &lt; 24 Horas:</strong> Software probado y refinado, listo para vender hoy mismo.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">✔</span>
+              <div><strong class="text-white">Todo incluido:</strong> VPS de alta velocidad, base de datos aislada, SSL automático y copias de seguridad.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">✔</span>
+              <div><strong class="text-white">Actualizaciones continuas:</strong> Siempre tienes la última versión sin pagar nada extra.</div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-cyan-400 font-bold text-base">✔</span>
+              <div><strong class="text-white">Libertad total:</strong> Cancela cuando desees o cambia de aplicación según tu temporada.</div>
+            </li>
+          </ul>
+
+          <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Ahorro promedio: 85%</span>
+            <a href="#catalogo" class="text-sm font-bold text-white hover:text-cyan-300 flex items-center gap-1">
+              Ver aplicaciones disponibles <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- APP CATALOG SECTION -->
+  <section id="catalogo" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <span class="badge-chip text-purple-400 border-purple-500/30 bg-purple-950/40">
+            <i data-lucide="boxes" class="w-3.5 h-3.5"></i> Catálogo Activo
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white mt-3">
+            Aplicaciones en <span class="text-gradient-cyan">Alquiler Inmediato</span>
+          </h2>
+          <p class="mt-3 text-slate-300 text-base max-w-xl">
+            Sistemas listos para poner en marcha hoy mismo en tu negocio. Elige tu app y nosotros configuramos tu entorno VPS en menos de un día.
+          </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-slate-900/80 border border-white/10">
+          <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all" data-filter="all">Todos</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all" data-filter="gastronomia">Gastronomía & Pedidos</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all" data-filter="citas">Citas & Turnos</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all" data-filter="ia">IA & Automatización</button>
+          <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all" data-filter="custom">A Medida</button>
+        </div>
+      </div>
+
+      <!-- App Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: ComidaYa -->
+        <div class="app-card-item glass-card rounded-3xl p-7 flex flex-col justify-between" data-category="gastronomia">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 border border-amber-500/30 text-amber-300 flex items-center gap-1.5">
+                <i data-lucide="utensils" class="w-3.5 h-3.5"></i> Restaurantes & Delivery
+              </span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300">
+                Más Alquilado 🔥
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">ComidaYa</h3>
+            <p class="text-xs text-cyan-400 font-mono mt-1">Next.js 16 • KDS Cocina • Tickets ESC/POS</p>
+            
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              Plataforma para restaurantes, dark kitchens y hamburgueserías. Tu propio canal de pedidos web sin pagar 30% de comisiones a terceros.
+            </p>
+
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Menú digital interactivo QR para mesas y redes</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Pantalla KDS en cocina en tiempo real</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Impresión directa de comandas térmicas</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Hosting en VPS y certificado SSL incluidos</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-5 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span class="text-xs text-slate-400 block">Alquiler mensual:</span>
+                <span class="text-2xl font-black text-white">$19 <span class="text-xs font-normal text-slate-400">USD/mes</span></span>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-red-400 line-through">Comprada: $3,500</span>
+                <span class="block text-xs font-bold text-emerald-400">Ahorras 95%</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button class="open-app-modal-btn w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-white/10 transition-colors flex items-center justify-center gap-1.5" data-app-id="comidaya">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-cyan-400"></i> Ficha & Demo
+              </button>
+              <button onclick="openWhatsApp('¡Hola! Me interesa alquilar el sistema ComidaYa ($19/mes) para mi restaurante.')" class="w-full py-2.5 px-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-cyan-500/20">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Alquilar Ya
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: TurnoYa -->
+        <div class="app-card-item glass-card rounded-3xl p-7 flex flex-col justify-between" data-category="citas">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/15 border border-purple-500/30 text-purple-300 flex items-center gap-1.5">
+                <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i> Citas & Reservas
+              </span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-purple-500/20 text-purple-300">
+                Muy Solicitado ⭐
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">TurnoYa</h3>
+            <p class="text-xs text-purple-400 font-mono mt-1">Next.js • Recordatorios WhatsApp • Multi-profesional</p>
+            
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              Gestor de turnos y agenda online para barberías, estéticas, spas, consultorios médicos y profesionales independientes.
+            </p>
+
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Tus clientes reservan 24/7 sin llamarte</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Recordatorios automáticos para evitar ausencias</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Gestión de especialistas y horarios de atención</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Panel de métricas e ingresos en tiempo real</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-5 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span class="text-xs text-slate-400 block">Alquiler mensual:</span>
+                <span class="text-2xl font-black text-white">$15 <span class="text-xs font-normal text-slate-400">USD/mes</span></span>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-red-400 line-through">Comprada: $2,800</span>
+                <span class="block text-xs font-bold text-emerald-400">Ahorras 96%</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button class="open-app-modal-btn w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-white/10 transition-colors flex items-center justify-center gap-1.5" data-app-id="turnoya">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-purple-400"></i> Ficha & Demo
+              </button>
+              <button onclick="openWhatsApp('¡Hola! Quiero alquilar TurnoYa ($15/mes) para organizar las citas de mi negocio.')" class="w-full py-2.5 px-3 rounded-xl bg-purple-500 hover:bg-purple-400 text-white font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-purple-500/20">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Alquilar Ya
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: NewsFlow AI -->
+        <div class="app-card-item glass-card rounded-3xl p-7 flex flex-col justify-between" data-category="ia">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 flex items-center gap-1.5">
+                <i data-lucide="bot" class="w-3.5 h-3.5"></i> IA & Automatización
+              </span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300">
+                Full IA ⚡
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">NewsFlow AI</h3>
+            <p class="text-xs text-cyan-400 font-mono mt-1">Redacción Automatizada • LLM • RSS Ingestion</p>
+            
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              Monitorea fuentes en tiempo real, redacta noticias y artículos optimizados para SEO y publica en tu sitio sin redactores manuales.
+            </p>
+
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Detección de noticias de última hora 24/7</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Reescritura inteligente anti-plagio con IA</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Publicación automática en WordPress o CMS propio</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Alojado en contenedor privado en nuestro VPS</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-5 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span class="text-xs text-slate-400 block">Alquiler mensual:</span>
+                <span class="text-2xl font-black text-white">$25 <span class="text-xs font-normal text-slate-400">USD/mes</span></span>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-red-400 line-through">Comprada: $4,200</span>
+                <span class="block text-xs font-bold text-emerald-400">Ahorras 94%</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button class="open-app-modal-btn w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-white/10 transition-colors flex items-center justify-center gap-1.5" data-app-id="newsflow">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-cyan-400"></i> Ficha & Demo
+              </button>
+              <button onclick="openWhatsApp('¡Hola! Quiero alquilar NewsFlow AI ($25/mes) para automatizar contenidos.')" class="w-full py-2.5 px-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-cyan-500/20">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Alquilar Ya
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: SpExtractor -->
+        <div class="app-card-item glass-card rounded-3xl p-7 flex flex-col justify-between" data-category="ia">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 flex items-center gap-1.5">
+                <i data-lucide="database" class="w-3.5 h-3.5"></i> Datos & Procesamiento
+              </span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300">
+                Alta Eficiencia
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white">SpExtractor</h3>
+            <p class="text-xs text-emerald-400 font-mono mt-1">Data Processing • Multi-Engine • Export Pro</p>
+            
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              Herramienta de extracción y depuración masiva de datos estructurados para directorios, tiendas y catálogos comerciales.
+            </p>
+
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Extracción en paralelo ultrarrápida</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Exportación limpia a Excel, CSV y formato JSON</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Cero complicaciones de mantenimiento técnico</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>Uso ilimitado mientras mantengas tu suscripción</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-5 border-t border-white/10">
+            <div class="flex items-baseline justify-between mb-4">
+              <div>
+                <span class="text-xs text-slate-400 block">Alquiler mensual:</span>
+                <span class="text-2xl font-black text-white">$22 <span class="text-xs font-normal text-slate-400">USD/mes</span></span>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-red-400 line-through">Comprada: $3,100</span>
+                <span class="block text-xs font-bold text-emerald-400">Ahorras 93%</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button class="open-app-modal-btn w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-white/10 transition-colors flex items-center justify-center gap-1.5" data-app-id="spextractor">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-emerald-400"></i> Ficha & Demo
+              </button>
+              <button onclick="openWhatsApp('¡Hola! Deseo alquilar SpExtractor ($22/mes) para procesamiento de datos.')" class="w-full py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Alquilar Ya
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: Aplicación a Medida en Alquiler -->
+        <div class="app-card-item md:col-span-2 lg:col-span-2 glass-card rounded-3xl p-8 flex flex-col justify-between border-cyan-500/40 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-cyan-950/40 glow-cyan-border" data-category="custom">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-pink-500/15 border border-pink-500/30 text-pink-300 flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Servicio Exclusivo a Medida
+              </span>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">
+                ¡La Construimos y Te la Alquilamos!
+              </span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">¿Tu negocio tiene un requerimiento especial?</h3>
+            <p class="text-slate-300 text-base mt-2 max-w-2xl">
+              Si ninguna app del catálogo se adapta a tu flujo específico, <strong>no gastes miles de dólares en desarrollo tradicional</strong>. Dinos qué necesitas, la construimos y te la dejamos en alquiler a una tarifa mensual sumamente accesible.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-4 mt-6">
+              <div class="p-4 rounded-2xl bg-slate-800/40 border border-white/5">
+                <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400"></i> $0 de Riesgo Financiero
+                </h4>
+                <p class="text-xs text-slate-400 mt-1">No arriesgas capital en agencias que luego no responden.</p>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-slate-800/40 border border-white/5">
+                <h4 class="font-bold text-white text-sm flex items-center gap-2">
+                  <i data-lucide="wrench" class="w-4 h-4 text-purple-400"></i> Mantenimiento de por vida
+                </h4>
+                <p class="text-xs text-slate-400 mt-1">Si algo falla o necesitas ajustes, corre por nuestra cuenta.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-xs text-slate-400 block">Tarifa mensual estimada:</span>
+              <span class="text-2xl font-black text-white">Desde $35 <span class="text-xs font-normal text-slate-400">USD/mes</span></span>
+            </div>
+            
+            <button onclick="openWhatsApp('¡Hola AppzPlay! Tengo una idea de app específica para mi negocio y me gustaría que la desarrollen para alquilarla mensualmente.')" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:from-pink-400 hover:to-cyan-400 text-white font-bold text-sm shadow-lg shadow-purple-500/25 transition-transform hover:scale-105 flex items-center justify-center gap-2">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+              <span>Cotizar mi App en Alquiler</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE RENTAL SAVINGS CALCULATOR -->
+  <section id="calculadora" class="py-20 relative bg-gradient-to-b from-[#07090e] via-[#0b101c] to-[#07090e] border-t border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="badge-chip text-emerald-400 border-emerald-500/30 bg-emerald-950/40">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i> Simulador Financiero
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">
+          Calcula cuánto dinero <span class="text-gradient-cyan">ahorras alquilando</span>
+        </h2>
+        <p class="mt-3 text-slate-300 text-base">
+          Mira la enorme diferencia entre comprar un desarrollo tradicional vs alquilar en AppzPlay durante tu primer año.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Controles de la Calculadora -->
+        <div class="lg:col-span-7 glass-card rounded-3xl p-8 border-white/10 space-y-6">
+          
+          <div>
+            <label class="block text-sm font-bold text-slate-200 mb-2">1. Selecciona la aplicación que necesitas:</label>
+            <select id="calc-app-select" class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-4 py-3.5 text-white font-semibold text-sm focus:outline-none focus:border-cyan-400">
+              <option value="comidaya">ComidaYa — Restaurantes, Food Trucks y Delivery ($19/mes)</option>
+              <option value="turnoya">TurnoYa — Agenda y Reservas de Turnos ($15/mes)</option>
+              <option value="newsflow">NewsFlow AI — Redacción y Noticias IA ($25/mes)</option>
+              <option value="spextractor">SpExtractor — Extracción y Procesamiento ($22/mes)</option>
+              <option value="customapp">App a Medida en Alquiler ($35/mes)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-200 mb-2">2. Frecuencia de Facturación:</label>
+            <select id="calc-period" class="w-full bg-slate-900/90 border border-white/20 rounded-xl px-4 py-3.5 text-white font-semibold text-sm focus:outline-none focus:border-cyan-400">
+              <option value="monthly">Facturación Mensual (Máxima flexibilidad, cancela cuando quieras)</option>
+              <option value="annual">Facturación Anual (20% de Descuento Especial de Comunidad)</option>
+            </select>
+          </div>
+
+          <div class="pt-2">
+            <span class="block text-sm font-bold text-slate-200 mb-3">3. Servicios Adicionales Opcionales:</span>
+            
+            <div class="space-y-3">
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 cursor-pointer hover:border-cyan-500/30">
+                <input type="checkbox" id="calc-domain" class="w-4 h-4 rounded text-cyan-500 focus:ring-0 bg-slate-800">
+                <span class="text-sm text-slate-300">Dominio Propio personalizado (.com / .net) (+ $3 USD/mes)</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-slate-900/50 border border-white/5 cursor-pointer hover:border-cyan-500/30">
+                <input type="checkbox" id="calc-vip" class="w-4 h-4 rounded text-cyan-500 focus:ring-0 bg-slate-800">
+                <span class="text-sm text-slate-300">Soporte Prioritario VIP 24/7 por WhatsApp (+ $7 USD/mes)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Included items summary -->
+          <div class="p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs text-cyan-300 flex items-center gap-3">
+            <i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0 text-cyan-400"></i>
+            <span><strong>Incluido gratis en cualquier alquiler:</strong> Servidor VPS, SSL, backups continuos y actualizaciones de software.</span>
+          </div>
+
+        </div>
+
+        <!-- Panel de Resultados de Ahorro -->
+        <div class="lg:col-span-5 glass-card rounded-3xl p-8 border-cyan-500/40 bg-gradient-to-b from-slate-900/90 via-cyan-950/20 to-slate-950/90 text-center relative overflow-hidden glow-cyan-border">
+          
+          <div class="text-xs uppercase tracking-widest font-extrabold text-cyan-400 mb-2">Tu Cuota de Alquiler</div>
+          <div id="calc-selected-name" class="text-sm text-slate-400 font-medium mb-3">ComidaYa — SaaS Gastronómico</div>
+          
+          <div class="flex items-baseline justify-center gap-1 mb-6">
+            <span id="calc-display-rent" class="text-5xl sm:text-6xl font-black text-white">$19</span>
+            <span class="text-slate-400 text-sm">USD / mes</span>
+          </div>
+
+          <div class="space-y-4 py-6 border-t border-b border-white/10 text-left text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Gasto anual comprando app:</span>
+              <span id="calc-display-trad" class="font-bold text-red-400">$4,940 USD</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-slate-400">Tu costo anual alquilando:</span>
+              <span class="font-bold text-cyan-400">Mínimo accesible</span>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-white/5">
+              <span class="text-slate-200 font-bold">¡Tu Ahorro en el Año 1!</span>
+              <span id="calc-display-savings" class="text-2xl font-black text-emerald-400">$4,712 USD</span>
+            </div>
+          </div>
+
+          <button onclick="openWhatsApp('¡Hola! Usé la calculadora de AppzPlay y quiero alquilar este servicio con el ahorro calculado.')" class="mt-6 w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black text-base shadow-xl shadow-emerald-500/25 transition-transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+            <i data-lucide="zap" class="w-5 h-5 text-slate-950"></i>
+            <span>Iniciar mi Alquiler con este Ahorro</span>
+          </button>
+          
+          <p class="text-[11px] text-slate-400 mt-3">Sin permanencia mínima obligatoria. Cancela cuando gustes.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW RENTING WORKS (4 STEPS) -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="badge-chip text-indigo-400 border-indigo-500/30 bg-indigo-950/40">
+          <i data-lucide="workflow" class="w-3.5 h-3.5"></i> Proceso 100% Sin Fricción
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">
+          ¿Cómo funciona el <span class="text-gradient-cyan">alquiler en AppzPlay</span>?
+        </h2>
+        <p class="mt-3 text-slate-300 text-base">
+          En 4 sencillos pasos tendrás la aplicación trabajando para tu negocio sin dolores de cabeza técnicos.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        
+        <div class="glass-card rounded-2xl p-6 text-center relative">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-black text-xl flex items-center justify-center mx-auto mb-4">
+            1
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Eliges tu Aplicación</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Escoge del catálogo la solución que resuelve el dolor de tu negocio (restaurantes, citas, IA, etc).
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 text-center relative">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 font-black text-xl flex items-center justify-center mx-auto mb-4">
+            2
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Despliegue en VPS</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Aprovisionamos tu contenedor en nuestro servidor VPS en &lt; 24h, con tu logo, colores e información inicial.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 text-center relative">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 font-black text-xl flex items-center justify-center mx-auto mb-4">
+            3
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Cómoda Cuota Mensual</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Pagas una suscripción mensual sumamente accesible para tu comunidad. Sin préstamos ni endeudamiento.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 text-center relative">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-black text-xl flex items-center justify-center mx-auto mb-4">
+            4
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Tranquilidad Total</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Nosotros cuidamos el servidor, la seguridad, las copias de seguridad y las actualizaciones. Tú solo vendes.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INFRASTRUCTURE & SECURITY (VPS & COOLIFY / TRAEFIK) -->
+  <section class="py-20 relative bg-slate-950/60 border-t border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="badge-chip text-cyan-400 border-cyan-500/30 bg-cyan-950/40">
+            <i data-lucide="shield" class="w-3.5 h-3.5"></i> Infraestructura Propia en VPS
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 leading-tight">
+            Alojado en servidores VPS de alta velocidad con <span class="text-gradient-cyan">Aislamiento Total</span>
+          </h2>
+          <p class="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            No usamos servidores compartidos lentos. Cada cliente y aplicación corre en su propio contenedor Docker optimizado en VPS, gestionado con la máxima seguridad y monitoreo en tiempo real.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 flex-shrink-0">
+                <i data-lucide="cpu" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Latencia ultrabaja (&lt; 20ms)</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Respuestas instantáneas en pedidos, reservas y consultas de usuarios.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 flex-shrink-0">
+                <i data-lucide="lock" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">AppzPlay Shield & Perimeter Protection</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Control perimetral seguro mediante Traefik. Tus datos y bases de datos nunca se exponen.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                <i data-lucide="database-backup" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Respaldos Automáticos Diarios</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Tu información empresarial respaldada en almacenamiento seguro ante cualquier eventualidad.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terminal / Tech Preview Card -->
+        <div class="glass-card-static rounded-3xl p-6 border-white/10 bg-[#060a12] font-mono text-xs shadow-2xl relative">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+              <span class="text-slate-400 text-[11px] ml-2">appzplay-vps-cluster ~ docker-compose</span>
+            </div>
+            <span class="text-emerald-400 text-[10px] flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> 99.98% uptime
+            </span>
+          </div>
+
+          <div class="space-y-2 text-slate-300">
+            <p class="text-slate-500"># Topología del clúster de alquiler de aplicaciones</p>
+            <p><span class="text-cyan-400">➜</span> <span class="text-purple-400">infra</span>: Host VPS Ubuntu 24.04 LTS (Dedicated)</p>
+            <p><span class="text-cyan-400">➜</span> <span class="text-purple-400">engine</span>: Coolify + Traefik ForwardAuth Gateway</p>
+            <p><span class="text-cyan-400">➜</span> <span class="text-purple-400">stack</span>: Next.js 16 + React 19 + Prisma + Postgres</p>
+            <div class="p-3 my-3 rounded-xl bg-slate-900/90 border border-cyan-500/20 text-slate-300 space-y-1">
+              <div class="text-cyan-300 font-bold">Contenedores activos en producción:</div>
+              <div>✔ comidaya-prod.appzplay.online &nbsp;&nbsp;[HEALTHY - 14ms]</div>
+              <div>✔ turnoya-prod.appzplay.online &nbsp;&nbsp;&nbsp;[HEALTHY - 18ms]</div>
+              <div>✔ newsflow-ai.appzplay.online &nbsp;&nbsp;[HEALTHY - 21ms]</div>
+              <div>✔ suscribe-gateway.appzplay.online [SHIELD ACTIVE]</div>
+            </div>
+            <p class="text-emerald-400">● 0 downtime deployments • Auto SSL Let's Encrypt • DDoS Protected</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING / MODALIDADES DE ALQUILER -->
+  <section id="planes" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="badge-chip text-cyan-400 border-cyan-500/30 bg-cyan-950/40">
+          <i data-lucide="tag" class="w-3.5 h-3.5"></i> Planes Transparentes
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">
+          Modalidades de <span class="text-gradient-cyan">Alquiler Accesibles</span>
+        </h2>
+        <p class="mt-3 text-slate-300 text-base">
+          Precios justos pensados para emprendedores, pequeños comerciantes y la comunidad.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- PLAN 1: Emprendedor / Starter -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Plan Starter</div>
+            <h3 class="text-2xl font-bold text-white">1 App en Alquiler</h3>
+            <p class="text-xs text-slate-400 mt-2">Para el negocio que quiere empezar a digitalizarse hoy mismo.</p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold text-white">$15 - $19</span>
+              <span class="text-xs text-slate-400">USD / mes</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>1 Aplicación a elección (ComidaYa o TurnoYa)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Subdominio seguro (tunegocio.appzplay.online)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Hosting en VPS con 99.9% de uptime</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Soporte por WhatsApp de lunes a sábado</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Actualizaciones del sistema incluidas</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openWhatsApp('¡Hola! Me interesa alquilar el Plan Starter (1 app) para mi negocio.')" class="mt-8 w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs border border-white/10 transition-colors">
+            Alquilar Plan Starter
+          </button>
+        </div>
+
+        <!-- PLAN 2: Negocio Pro (Destacado) -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between border-cyan-400/50 bg-gradient-to-b from-slate-900/90 via-cyan-950/30 to-slate-900/90 relative glow-cyan-border">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-[11px] font-black uppercase tracking-wider text-white shadow-lg">
+            Recomendado para Negocios
+          </div>
+
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2 mt-1">Plan Negocio Pro</div>
+            <h3 class="text-2xl font-bold text-white">1 App Pro + Dominio</h3>
+            <p class="text-xs text-slate-300 mt-2">Para negocios con alto flujo que quieren su propia marca oficial.</p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold text-white">$25</span>
+              <span class="text-xs text-slate-400">USD / mes</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-200">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Cualquier App del catálogo (ComidaYa, TurnoYa, IA)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Dominio Propio conectado (ej: www.tunegocio.com)</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Personalización completa de colores y logo</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Transacciones y pedidos ilimitados</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Soporte prioritario VIP 7 días a la semana</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-cyan-400"></i>
+                <span>Copias de seguridad diarias automatizadas</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openWhatsApp('¡Hola! Quiero alquilar el Plan Negocio Pro ($25/mes) con dominio propio.')" class="mt-8 w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-xs shadow-lg shadow-cyan-500/30 transition-transform hover:scale-105">
+            Alquilar Plan Negocio Pro
+          </button>
+        </div>
+
+        <!-- PLAN 3: Multi-SaaS / Suite -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">Plan Multi-SaaS</div>
+            <h3 class="text-2xl font-bold text-white">Ecosistema Completo</h3>
+            <p class="text-xs text-slate-400 mt-2">Para empresarios que administran varias marcas o sucursales.</p>
+
+            <div class="my-6">
+              <span class="text-4xl font-extrabold text-white">$45</span>
+              <span class="text-xs text-slate-400">USD / mes</span>
+            </div>
+
+            <ul class="space-y-3 text-xs text-slate-300">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                <span>Hasta 3 aplicaciones activas simultáneamente</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                <span>Contenedores independientes en VPS</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                <span>Múltiples dominios personalizados</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                <span>Acceso anticipado a nuevas aplicaciones en catálogo</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-purple-400"></i>
+                <span>Asesoría técnica y configuración personalizada</span>
+              </li>
+            </ul>
+          </div>
+
+          <button onclick="openWhatsApp('¡Hola! Me interesa el Plan Multi-SaaS ($45/mes) para varias aplicaciones de mi negocio.')" class="mt-8 w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs transition-colors">
+            Alquilar Plan Multi-SaaS
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-20 relative bg-[#090d16]/70 border-t border-white/10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="badge-chip text-cyan-400 border-cyan-500/30 bg-cyan-950/40">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Resuelve tus Dudas
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
+          Preguntas Frecuentes sobre el <span class="text-gradient-cyan">Alquiler de Apps</span>
+        </h2>
+        <p class="mt-3 text-slate-300 text-sm sm:text-base">
+          Todo lo que necesitas saber antes de empezar a alquilar con nosotros.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="faq-item glass-card-static rounded-2xl border-white/10 p-5">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-white text-base">
+            <span>¿Por qué me conviene alquilar en vez de mandar a hacer una app?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden mt-3 text-sm text-slate-300 border-t border-white/10 pt-3 leading-relaxed">
+            Mandar a hacer una app cuesta entre $3,000 y $8,000 USD, tarda meses y luego tienes que pagar servidores, certificados y cobros caros por mantenimiento. Al alquilar en AppzPlay, pagas solo una pequeña cuota mensual (desde $15 a $25 USD), la app está lista en 24 horas y los costos de servidores VPS, soporte y actualizaciones ya están 100% cubiertos.
+          </div>
+        </div>
+
+        <div class="faq-item glass-card-static rounded-2xl border-white/10 p-5">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-white text-base">
+            <span>¿Hay algún contrato forzoso o permanencia mínima?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden mt-3 text-sm text-slate-300 border-t border-white/10 pt-3 leading-relaxed">
+            No. Creemos en la libertad y confianza de la comunidad. Pagas mes a mes y puedes cancelar en cualquier momento avisándonos antes de tu siguiente ciclo, sin penalizaciones ni letras pequeñas.
+          </div>
+        </div>
+
+        <div class="faq-item glass-card-static rounded-2xl border-white/10 p-5">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-white text-base">
+            <span>¿Puedo usar mi propio dominio (.com, .online, .co)?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden mt-3 text-sm text-slate-300 border-t border-white/10 pt-3 leading-relaxed">
+            ¡Sí, por supuesto! En el Plan Starter te brindamos un subdominio gratis (ej: tunegocio.appzplay.online) y en el Plan Negocio Pro o como adicional podemos conectar tu propio dominio oficial con certificado SSL automático gratuito.
+          </div>
+        </div>
+
+        <div class="faq-item glass-card-static rounded-2xl border-white/10 p-5">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-white text-base">
+            <span>¿Mis datos y clientes están seguros?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden mt-3 text-sm text-slate-300 border-t border-white/10 pt-3 leading-relaxed">
+            Totalmente seguros. Cada cliente opera en su propia base de datos o contenedor aislado en nuestro cluster VPS de alto rendimiento, con el sistema perimetral de seguridad AppzPlay Shield y respaldos diarios. Tus clientes e ingresos te pertenecen a ti.
+          </div>
+        </div>
+
+        <div class="faq-item glass-card-static rounded-2xl border-white/10 p-5">
+          <button class="faq-question w-full flex items-center justify-between text-left font-bold text-white text-base">
+            <span>¿Qué pasa si necesito una app que no está en el catálogo?</span>
+            <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-cyan-400 transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden mt-3 text-sm text-slate-300 border-t border-white/10 pt-3 leading-relaxed">
+            Contamos con el servicio de "App a Medida en Alquiler". Evaluamos tu idea, la desarrollamos con las tecnologías más modernas y te la entregamos en modalidad de suscripción accesible, para que no tengas que desembolsar miles de dólares.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-3xl p-10 sm:p-14 text-center border-cyan-500/50 bg-gradient-to-r from-cyan-950/60 via-slate-900/90 to-purple-950/60 relative overflow-hidden glow-cyan-border">
+        
+        <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+          Pon a trabajar tu aplicación <br><span class="text-gradient-cyan">en menos de 24 horas</span>
+        </h2>
+        <p class="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+          Escríbenos directamente a WhatsApp. Te asesoramos sin costo sobre qué app se adapta mejor a tu negocio y te dejamos el entorno listo hoy mismo.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button onclick="openWhatsApp('¡Hola AppzPlay! Quiero conversar para alquilar un sistema para mi negocio.')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-base shadow-xl shadow-cyan-500/30 transition-transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Hablar con un Asesor por WhatsApp</span>
+          </button>
+        </div>
+
+        <div class="mt-6 text-xs text-slate-400 flex items-center justify-center gap-4">
+          <span>⚡ Sin permanencia obligatoria</span>
+          <span>•</span>
+          <span>🛡️ VPS Aislado</span>
+          <span>•</span>
+          <span>💳 Precios para la comunidad</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-[#05070c] py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center font-black text-sm text-white">
+              ⚡
+            </div>
+            <span class="text-xl font-bold text-white tracking-tight">Appz<span class="text-cyan-400">Play</span></span>
+          </div>
+          <p class="text-slate-400 text-xs max-w-sm leading-relaxed">
+            Plataforma de alquiler de servicios de aplicaciones SaaS. Democratizamos el acceso a tecnología de alto nivel para negocios y comunidades sin sobrecostos.
+          </p>
+          <div class="mt-4 text-[11px] text-slate-500">
+            Dominio oficial: <a href="https://appzplay.online" class="text-cyan-400 hover:underline">https://appzplay.online</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Apps en Alquiler</h4>
+          <ul class="space-y-2">
+            <li><a href="#catalogo" class="hover:text-cyan-400">ComidaYa (Restaurantes)</a></li>
+            <li><a href="#catalogo" class="hover:text-cyan-400">TurnoYa (Citas & Reservas)</a></li>
+            <li><a href="#catalogo" class="hover:text-cyan-400">NewsFlow AI (Noticias IA)</a></li>
+            <li><a href="#catalogo" class="hover:text-cyan-400">SpExtractor (Datos)</a></li>
+            <li><a href="#catalogo" class="hover:text-cyan-400">App a Medida en Alquiler</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Infraestructura & Soporte</h4>
+          <ul class="space-y-2">
+            <li><span class="text-slate-300">VPS Hosting Dedicado</span></li>
+            <li><span class="text-slate-300">Coolify + Docker Stack</span></li>
+            <li><span class="text-slate-300">AppzPlay Shield Gateway</span></li>
+            <li><a href="#faq" class="hover:text-cyan-400">Preguntas Frecuentes</a></li>
+            <li><a href="#calculadora" class="hover:text-cyan-400">Calculadora de Ahorro</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          &copy; 2026 AppzPlay. Todos los derechos reservados. Diseñado para montaje en VPS.
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-emerald-400 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Servidores Activos en VPS
+          </span>
+          <span>Hecho para la comunidad</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <aside aria-label="Contacto directo" class="fixed bottom-6 right-6 z-50">
+    <button onclick="openWhatsApp('¡Hola AppzPlay! Deseo información para alquilar una app para mi negocio.')" class="w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all animate-pulse-glow" title="Chatear por WhatsApp">
+      <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </button>
+  </aside>
+
+  <!-- QUICK VIEW / MODAL INTERACTIVO -->
+  <div id="app-detail-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay hidden">
+    <div class="glass-card-static rounded-3xl p-6 sm:p-8 max-w-2xl w-full border-cyan-500/40 bg-[#090e18] shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close button -->
+      <button id="modal-close-btn" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center text-sm font-bold">
+        ✕
+      </button>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold mb-3">
+        <i data-lucide="package-check" class="w-3.5 h-3.5"></i> Ficha de Alquiler Llave en Mano
+      </div>
+
+      <h3 id="modal-title" class="text-2xl sm:text-3xl font-black text-white">Nombre de la App</h3>
+      <p id="modal-tagline" class="text-sm text-cyan-400 mt-1">Subtítulo descriptivo</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 my-5 p-4 rounded-2xl bg-slate-900/90 border border-white/5 text-xs">
+        <div>
+          <span class="text-slate-400 block">Cuota de Alquiler:</span>
+          <span id="modal-price" class="font-extrabold text-cyan-300 text-base">$19 USD/mes</span>
+        </div>
+        <div>
+          <span class="text-slate-400 block">Puesta en marcha:</span>
+          <span id="modal-time" class="font-bold text-white text-sm">&lt; 24 horas</span>
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+          <span class="text-slate-400 block">Comprándola costaría:</span>
+          <span id="modal-trad" class="font-bold text-red-400 text-sm line-through">$3,500</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i> ¿Qué incluye tu alquiler mensual?
+        </h4>
+        <ul id="modal-features-list" class="space-y-2 text-xs text-slate-300">
+          <!-- Dinámico -->
+        </ul>
+      </div>
+
+      <div class="mt-5 p-3 rounded-xl bg-slate-900/60 border border-white/5 text-[11px] text-slate-400">
+        <strong class="text-slate-300">Tecnología:</strong> <span id="modal-tech" class="font-mono text-cyan-300">Next.js + Postgres</span>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <button id="modal-rent-wa-btn" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all flex items-center justify-center gap-2">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Solicitar Alquiler de esta App</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Lucide Icons Render -->
+  <script>
+    lucide.createIcons();
+  </script>
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

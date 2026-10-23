@@ -1,0 +1,10 @@
+services:
+  appzplay-landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: appzplay-landing
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
