@@ -376,14 +376,7 @@
           errorMsg.classList.remove('hidden');
         }
       } catch (err) {
-        // En caso de modo estático o offline, verificar contraseña local
-        if (pwd === 'appzplay2026') {
-          authToken = 'appzplay2026';
-          localStorage.setItem('appzplay_admin_token', authToken);
-          checkAuth();
-        } else {
-          errorMsg.classList.remove('hidden');
-        }
+        errorMsg.classList.remove('hidden');
       }
     });
 
