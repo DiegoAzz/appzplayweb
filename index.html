@@ -52,6 +52,7 @@
 
   <!-- Performance & Preconnects -->
   <link rel="preconnect" href="https://dolar.appzplay.online">
+  <link rel="preconnect" href="https://salario.appzplay.online">
   <link rel="preconnect" href="https://freegames.appzplay.online">
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
@@ -69,6 +70,7 @@
         "description": "Ecosistema digital de herramientas web, información de divisas en tiempo real y entretenimiento en línea.",
         "sameAs": [
           "https://dolar.appzplay.online",
+          "https://salario.appzplay.online",
           "https://freegames.appzplay.online"
         ]
       },
@@ -91,7 +93,7 @@
             "name": "¿Las herramientas de AppzPlay tienen algún costo?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Todas las herramientas públicas disponibles bajo los subdominios de AppzPlay (como el monitor de TRM en Dólar AppzPlay y el portal FreeGames) son 100% gratuitas y de acceso abierto para toda la comunidad."
+              "text": "No. Todas las herramientas públicas disponibles bajo los subdominios de AppzPlay (como el monitor de TRM en Dólar AppzPlay, la calculadora de Prima y Nómina en Salario AppzPlay y el portal FreeGames) son 100% gratuitas y de acceso abierto para toda la comunidad."
             }
           },
           {
@@ -125,6 +127,12 @@
           {
             "@type": "ListItem",
             "position": 2,
+            "name": "Salario & Calculadora Laboral Colombia",
+            "url": "https://salario.appzplay.online"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
             "name": "FreeGames AppzPlay",
             "url": "https://freegames.appzplay.online"
           }
@@ -165,11 +173,14 @@
 
       <!-- Quick Platform Actions -->
       <div class="hidden sm:flex items-center gap-3">
-        <a href="https://dolar.appzplay.online" target="_blank" rel="noopener" class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all">
+        <a href="https://dolar.appzplay.online" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
           <span>Dólar en Vivo</span>
         </a>
-        <a href="https://freegames.appzplay.online" target="_blank" rel="noopener" class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 transition-all">
+        <a href="https://salario.appzplay.online" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-300 hover:bg-teal-500/20 transition-all">
+          <span>💼 Salario & Prima</span>
+        </a>
+        <a href="https://freegames.appzplay.online" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 transition-all">
           <i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i>
           <span>FreeGames</span>
         </a>
@@ -273,7 +284,43 @@
           </div>
         </div>
 
-        <!-- Tarjeta 2: FreeGames AppzPlay -->
+        <!-- Tarjeta 2: Salario & Nómina Colombia -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border-teal-500/30 hover:border-teal-500/60 transition-all hover:-translate-y-1 group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-teal-500/10 text-teal-400 border border-teal-500/30 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-teal-400"></span> Laboral & Nómina
+              </span>
+              <span class="text-xs text-slate-500 font-mono">salario.appzplay.online</span>
+            </div>
+
+            <div class="w-14 h-14 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-2xl font-bold mb-4 group-hover:scale-110 transition-transform">
+              💼
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-teal-400 transition-colors">
+              Salario & Calculadora Laboral
+            </h3>
+            <p class="mt-2 text-slate-300 text-sm leading-relaxed">
+              Calculadora oficial de Prima Navideña (Diciembre), Horas Extras con recargos (Ley 2101), Liquidación de contrato, Planilla PILA para Independientes y Consultorio Laboral con Asesor IA en vivo.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-xs text-slate-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Fórmulas oficiales del Código de Trabajo</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Cálculo de Horas Extras y Recargos</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-teal-400"></i> Asesor IA de consultas laborales en vivo</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <a href="https://salario.appzplay.online" target="_blank" rel="noopener" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-lg shadow-teal-500/20 transition-all">
+              <span>Abrir Salario AppzPlay</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: FreeGames AppzPlay -->
         <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border-purple-500/30 hover:border-purple-500/60 transition-all hover:-translate-y-1 group">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -513,6 +560,7 @@
           <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Red de Subdominios</h4>
           <ul class="space-y-2">
             <li><a href="https://dolar.appzplay.online" target="_blank" rel="noopener" class="text-emerald-400 hover:underline flex items-center gap-1.5"><i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Dólar Colombia en Vivo</a></li>
+            <li><a href="https://salario.appzplay.online" target="_blank" rel="noopener" class="text-teal-400 hover:underline flex items-center gap-1.5"><i data-lucide="briefcase" class="w-3.5 h-3.5"></i> Salario & Calculadora Laboral</a></li>
             <li><a href="https://freegames.appzplay.online" target="_blank" rel="noopener" class="text-purple-400 hover:underline flex items-center gap-1.5"><i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i> FreeGames Promociones</a></li>
             <li><span class="text-slate-500">Nuevas utilidades en camino</span></li>
           </ul>
