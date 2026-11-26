@@ -24,6 +24,8 @@ const MIME_TYPES = {
   '.css': 'text/css; charset=UTF-8',
   '.js': 'application/javascript; charset=UTF-8',
   '.json': 'application/json; charset=UTF-8',
+  '.txt': 'text/plain; charset=UTF-8',
+  '.xml': 'application/xml; charset=UTF-8',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
@@ -161,6 +163,16 @@ const server = http.createServer((req, res) => {
   if (pathname === '/admin' || pathname === '/admin/' || pathname === '/admin.html') {
     const adminPath = path.join(__dirname, 'admin.html');
     serveStaticFile(res, adminPath, 'text/html; charset=UTF-8');
+    return;
+  }
+
+  // 4.1 Rutas Legales
+  if (pathname === '/privacidad' || pathname === '/privacidad.html') {
+    serveStaticFile(res, path.join(__dirname, 'privacidad.html'), 'text/html; charset=UTF-8');
+    return;
+  }
+  if (pathname === '/terminos' || pathname === '/terminos.html') {
+    serveStaticFile(res, path.join(__dirname, 'terminos.html'), 'text/html; charset=UTF-8');
     return;
   }
 

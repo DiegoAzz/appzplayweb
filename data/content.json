@@ -10,9 +10,10 @@
   "menu": [
     { "id": "m1", "label": "Páginas Web en Alquiler", "url": "#web-alquiler", "enabled": true },
     { "id": "m2", "label": "Servicios Adicionales", "url": "#servicios-adicionales", "enabled": true },
-    { "id": "m3", "label": "¿Por qué Alquilar?", "url": "#por-que-alquilar", "enabled": true },
-    { "id": "m4", "label": "Calculadora de Cuota", "url": "#calculadora", "enabled": true },
-    { "id": "m5", "label": "Preguntas Frecuentes", "url": "#faq", "enabled": true }
+    { "id": "m-eco-dolar", "label": "💵 Dólar Colombia", "url": "https://dolar.appzplay.online", "enabled": true },
+    { "id": "m-eco-games", "label": "🎮 FreeGames", "url": "https://freegames.appzplay.online", "enabled": true },
+    { "id": "m4", "label": "Calculadora", "url": "#calculadora", "enabled": true },
+    { "id": "m5", "label": "FAQ", "url": "#faq", "enabled": true }
   ],
   "hero": {
     "titleLine1": "Tu Página Web Profesional",
