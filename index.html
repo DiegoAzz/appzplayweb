@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AppzPlay — Páginas Web & Servicios en Alquiler Mensual</title>
-  <meta name="description" content="Tu página web profesional en alquiler mensual sin costo inicial de desarrollo. Suma módulos adicionales para tu negocio (pedidos, citas, IA) a precios cómodos.">
-  <meta name="keywords" content="alquiler de paginas web, web as a service, apps en alquiler, comidaya, turnoya, software accesible, vps coolify">
+  <title>AppzPlay — Ecosistema Digital de Herramientas Web & Finanzas</title>
+  <meta name="description" content="Portal central de herramientas web, información financiera en tiempo real, divisas y entretenimiento digital de AppzPlay. Accede a nuestras aplicaciones gratuitas.">
+  <meta name="keywords" content="appzplay, herramientas web, dolar colombia trm, freegames juegos gratis, utilidades digitales, portal web">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="AppzPlay — Páginas Web & Servicios en Alquiler Mensual">
-  <meta property="og:description" content="No pagues miles de dólares de golpe. Ten tu web lista por una cuota mensual fija y suma servicios adicionales según tu negocio.">
+  <meta property="og:title" content="AppzPlay — Ecosistema Digital de Herramientas Web">
+  <meta property="og:description" content="Portal oficial de AppzPlay: Dólar Colombia en vivo, FreeGames y utilidades digitales gratuitas.">
   <meta property="og:url" content="https://appzplay.online/">
   <meta property="og:type" content="website">
 
@@ -47,43 +47,45 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2306b6d4'/><text y='65' x='50' text-anchor='middle' font-size='55' fill='white' font-family='sans-serif' font-weight='bold'>A</text></svg>">
 </head>
-<body class="bg-[#07090e] text-slate-100 cyber-grid relative min-h-screen">
+<body class="bg-[#07090e] text-slate-100 cyber-grid relative min-h-screen flex flex-col font-sans">
 
   <!-- Ambient Glows -->
-  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] radial-glow-cyan pointer-events-none -z-10"></div>
-  <div class="fixed top-1/3 right-0 w-[500px] h-[500px] radial-glow-purple pointer-events-none -z-10"></div>
-  <div class="fixed bottom-10 left-0 w-[450px] h-[450px] radial-glow-emerald pointer-events-none -z-10"></div>
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] radial-glow-cyan pointer-events-none -z-10 opacity-40"></div>
+  <div class="fixed top-1/2 right-0 w-[450px] h-[450px] radial-glow-purple pointer-events-none -z-10 opacity-30"></div>
 
   <!-- Navigation -->
-  <nav class="sticky top-0 z-40 w-full border-b border-white/10 bg-[#07090e]/85 backdrop-blur-xl">
+  <nav class="sticky top-0 z-40 w-full border-b border-white/10 bg-[#07090e]/90 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="/" class="flex items-center gap-3 group">
         <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-purple-600 flex items-center justify-center font-black text-xl text-white shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
           ⚡
         </div>
         <div>
-          <span class="text-2xl font-black tracking-tight text-white">Appz<span class="text-gradient-cyan">Play</span></span>
-          <span class="block text-[10px] uppercase font-bold tracking-widest text-cyan-400 dyn-brand-tagline">Páginas Web & Servicios en Alquiler</span>
+          <span class="text-2xl font-black tracking-tight text-white">Appz<span class="text-cyan-400">Play</span></span>
+          <span class="block text-[10px] uppercase font-bold tracking-widest text-slate-400">Portal & Ecosistema Web</span>
         </div>
       </a>
 
-      <!-- Desktop Links (Generados Dinámicamente) -->
-      <div id="dyn-desktop-menu" class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <!-- Renderizado dinámico -->
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#herramientas" class="hover:text-cyan-400 transition-colors">Herramientas & Subdominios</a>
+        <a href="#articulos" class="hover:text-cyan-400 transition-colors">Guías Editoriales</a>
+        <a href="#acerca" class="hover:text-cyan-400 transition-colors">Quiénes Somos</a>
+        <a href="#faq" class="hover:text-cyan-400 transition-colors">Preguntas Frecuentes</a>
       </div>
 
-      <!-- Header CTAs -->
-      <div class="hidden sm:flex items-center gap-4">
-        <div class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
+      <!-- Quick Platform Actions -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="https://dolar.appzplay.online" target="_blank" rel="noopener" class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 transition-all">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span id="dyn-server-status">VPS 100% Operativo</span>
-        </div>
-        <button onclick="openWhatsApp('¡Hola AppzPlay! Quiero información para alquilar una página web para mi negocio.')" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-cyan-500/25 transition-all hover:scale-[1.02] active:scale-95 flex items-center gap-2">
-          <span>Alquilar Ahora</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </button>
+          <span>Dólar en Vivo</span>
+        </a>
+        <a href="https://freegames.appzplay.online" target="_blank" rel="noopener" class="flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 transition-all">
+          <i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i>
+          <span>FreeGames</span>
+        </a>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -94,338 +96,317 @@
 
     <!-- Mobile Dropdown -->
     <div id="mobile-menu" class="hidden md:hidden border-b border-white/10 bg-[#090d16] px-6 py-5 space-y-4">
-      <div id="dyn-mobile-menu-links" class="space-y-3">
-        <!-- Renderizado dinámico -->
+      <div class="space-y-3 text-sm">
+        <a href="#herramientas" class="block py-2 text-slate-200 hover:text-cyan-400">Herramientas & Subdominios</a>
+        <a href="#articulos" class="block py-2 text-slate-200 hover:text-cyan-400">Guías Editoriales</a>
+        <a href="#acerca" class="block py-2 text-slate-200 hover:text-cyan-400">Quiénes Somos</a>
+        <a href="#faq" class="block py-2 text-slate-200 hover:text-cyan-400">Preguntas Frecuentes</a>
       </div>
-      <button onclick="openWhatsApp('¡Hola AppzPlay! Quiero alquilar una página web para mi negocio.')" class="w-full mt-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
-        <span>Alquilar Ahora por WhatsApp</span>
-        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-      </button>
+      <div class="pt-3 border-t border-white/10 flex flex-col gap-2">
+        <a href="https://dolar.appzplay.online" target="_blank" class="w-full text-center py-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 font-semibold text-xs border border-emerald-500/30">Dólar Colombia en Vivo</a>
+        <a href="https://freegames.appzplay.online" target="_blank" class="w-full text-center py-2.5 rounded-xl bg-purple-500/20 text-purple-300 font-semibold text-xs border border-purple-500/30">FreeGames Promociones</a>
+      </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      
-      <!-- Top Announcement Pill -->
-      <div id="dyn-announcement-bar" class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 text-xs sm:text-sm font-semibold mb-8 animate-float">
-        <span class="flex h-2 w-2 rounded-full bg-cyan-400"></span>
-        <span>🚀 Tu Página Web Lista Sin Costo Inicial: Paga solo una cuota mensual accesible</span>
-        <span class="text-xs bg-cyan-500/20 px-2 py-0.5 rounded-md text-cyan-200">Modelo de Alquiler</span>
+  <!-- HERO SECTION -->
+  <header class="py-16 sm:py-24 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-6">
+        <span>⚡</span> Red Oficial de Aplicaciones Web
       </div>
-
-      <!-- Main Headline -->
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.15]">
-        <span id="dyn-hero-l1">Tu Página Web Profesional</span><br>
-        <span id="dyn-hero-l2" class="text-gradient-cyan">en Alquiler Mensual</span><br>
-        <span id="dyn-hero-l3" class="text-white text-3xl sm:text-5xl">y Servicios a tu Medida.</span>
+      <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
+        Herramientas Web, Finanzas <br class="hidden sm:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400">& Utilidades en Tiempo Real</span>
       </h1>
-
-      <!-- Subheadline -->
-      <p id="dyn-hero-sub" class="mt-6 text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-        No pagues $1,500 o $3,000 USD de golpe. Te creamos tu sitio web profesional por una cuota mensual mínima y fija. Y si necesitas más, sumas servicios adicionales (pedidos, citas, IA) cuando tu negocio lo requiera.
+      <p class="mt-6 text-slate-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+        Bienvenido a <strong>AppzPlay</strong>, el hub central de herramientas digitales gratuitas y plataformas especializadas. Diseñamos utilidades interactivas, monitoreo financiero y portales de entretenimiento de alta velocidad para la comunidad.
       </p>
-
-      <!-- CTA Buttons Group -->
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto sm:max-w-none">
-        <a href="#web-alquiler" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-base shadow-xl shadow-cyan-500/30 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
-          <i data-lucide="layout" class="w-5 h-5"></i>
-          <span>Alquilar mi Página Web</span>
+      
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="#herramientas" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 flex items-center gap-2 transition-all hover:scale-105">
+          <i data-lucide="layout-grid" class="w-4 h-4"></i>
+          <span>Explorar Herramientas</span>
         </a>
-        
-        <a href="#servicios-adicionales" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-white/15 font-semibold text-base transition-all hover:border-cyan-500/50 flex items-center justify-center gap-3">
-          <i data-lucide="plus-circle" class="w-5 h-5 text-cyan-400"></i>
-          <span>Ver Servicios Adicionales</span>
+        <a href="#articulos" class="px-6 py-3.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 border border-white/10 text-slate-200 font-semibold text-sm flex items-center gap-2 transition-all">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          <span>Leer Guías Informativas</span>
         </a>
       </div>
-
-      <!-- 4 Pillars -->
-      <div class="mt-14 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto text-left">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
-            <i data-lucide="badge-dollar-sign" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="text-lg font-bold text-white">$0 Costo Inicial</div>
-            <div class="text-xs text-slate-400">Sin desembolsos gigantes</div>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
-            <i data-lucide="server" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="text-lg font-bold text-white">VPS & SSL Incluido</div>
-            <div class="text-xs text-slate-400">Cero líos de hosting</div>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-            <i data-lucide="wrench" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="text-lg font-bold text-white">Soporte Continuo</div>
-            <div class="text-xs text-slate-400">Cambios y mantenimiento</div>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400">
-            <i data-lucide="puzzle" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <div class="text-lg font-bold text-white">Suma Servicios</div>
-            <div class="text-xs text-slate-400">Módulos según tu rubro</div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </header>
 
-  <!-- SECTION 1: PLANES DE PÁGINAS WEB EN ALQUILER (SERVICIO BASE) -->
-  <section id="web-alquiler" class="py-20 relative border-t border-b border-white/10 bg-[#090d16]/70">
+  <!-- PLATAFORMAS & SUBDOMINIOS (EL NÚCLEO DEL ECOSISTEMA) -->
+  <section id="herramientas" class="py-16 bg-[#090d16]/60 border-y border-white/5 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-chip text-cyan-400 border-cyan-500/30 bg-cyan-950/40">
-          <i data-lucide="layout" class="w-3.5 h-3.5"></i> Servicio Principal
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">
-          Tu Página Web en <span class="text-gradient-cyan">Alquiler Mensual</span>
-        </h2>
-        <p class="mt-3 text-slate-300 text-base">
-          Te diseñamos y ponemos en marcha tu página web profesional con <strong>$0 de costo de desarrollo inicial</strong>. Solo pagas una mensualidad fija y tienes todo resuelto.
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">Ecosistema Activo</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Plataformas y Subdominios de AppzPlay</h2>
+        <p class="text-slate-400 text-sm mt-3">
+          Cada una de nuestras herramientas está optimizada para cargar en milisegundos, con fuentes oficiales y sin registro obligatorio.
         </p>
       </div>
 
-      <!-- Contenedor dinámico de planes web -->
-      <div id="dyn-web-plans-container" class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- Renderizado dinámicamente desde content.json -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1: Dólar Colombia -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border-emerald-500/30 hover:border-emerald-500/60 transition-all hover:-translate-y-1 group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Finanzas en Vivo
+              </span>
+              <span class="text-xs text-slate-500 font-mono">dolar.appzplay.online</span>
+            </div>
+            
+            <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl font-bold mb-4 group-hover:scale-110 transition-transform">
+              💵
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+              Dólar & TRM Colombia Hoy
+            </h3>
+            <p class="mt-2 text-slate-300 text-sm leading-relaxed">
+              Monitoreo oficial de la Tasa Representativa del Mercado (TRM) certificada por la Superfinanciera. Incluye conversor bidireccional USD a COP, gráfica histórica de 30 días, confirmación de TRM para mañana y alertas en tiempo real.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-xs text-slate-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Datos oficiales de la Superfinanciera</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Calculadora precisa de divisas</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Alertas diarias vía Telegram</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <a href="https://dolar.appzplay.online" target="_blank" rel="noopener" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition-all">
+              <span>Abrir Dólar AppzPlay</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: FreeGames AppzPlay -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border-purple-500/30 hover:border-purple-500/60 transition-all hover:-translate-y-1 group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/10 text-purple-400 border border-purple-500/30 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-purple-400"></span> Gaming & Ofertas
+              </span>
+              <span class="text-xs text-slate-500 font-mono">freegames.appzplay.online</span>
+            </div>
+
+            <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-2xl font-bold mb-4 group-hover:scale-110 transition-transform">
+              🎮
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+              FreeGames AppzPlay
+            </h3>
+            <p class="mt-2 text-slate-300 text-sm leading-relaxed">
+              El rastreador de ofertas y juegos gratuitos 100% legales para PC (Steam, Epic Games, GOG) y consolas. Entérate al instante de lanzamientos temporales a $0 USD y promociones destacadas de la comunidad gamer.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-xs text-slate-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Juegos 100% legales y permanentes</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Actualización de ofertas 24/7</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Enlaces directos sin acortadores molestos</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <a href="https://freegames.appzplay.online" target="_blank" rel="noopener" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 transition-all">
+              <span>Abrir FreeGames</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Próximas Utilidades (Espacio Estándar para Nuevos Subdominios) -->
+        <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between border-cyan-500/20 bg-slate-900/40 border-dashed transition-all hover:border-cyan-500/40">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                🚀 Próximamente
+              </span>
+              <span class="text-xs text-slate-500 font-mono">*.appzplay.online</span>
+            </div>
+
+            <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl font-bold mb-4">
+              ⚙️
+            </div>
+
+            <h3 class="text-xl font-bold text-white">
+              Nuevas Herramientas en Camino
+            </h3>
+            <p class="mt-2 text-slate-400 text-sm leading-relaxed">
+              Estamos desarrollando nuevas utilidades web gratuitas: calculadoras de impuestos, convertidor universal de formatos, utilidades de red y herramientas de productividad para profesionales.
+            </p>
+
+            <ul class="mt-4 space-y-2 text-xs text-slate-500">
+              <li class="flex items-center gap-2"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i> Calculadoras financieras locales</li>
+              <li class="flex items-center gap-2"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i> Monitoreo de criptomonedas y tasas</li>
+              <li class="flex items-center gap-2"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-400"></i> Integración modular bajo subdominios</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-white/5">
+            <div class="w-full py-3 px-4 rounded-xl bg-slate-800/60 text-slate-400 font-semibold text-xs text-center border border-white/5">
+              En desarrollo activo
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- SECTION 2: SERVICIOS Y MÓDULOS ADICIONALES (SOLO LOS ACTIVOS) -->
-  <section id="servicios-adicionales" class="py-24 relative">
+  <!-- ARTÍCULOS & GUÍAS EDITORIALES (PROTECCIÓN Y VALOR PARA ADSENSE) -->
+  <section id="articulos" class="py-16 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div>
-          <span class="badge-chip text-purple-400 border-purple-500/30 bg-purple-950/40">
-            <i data-lucide="boxes" class="w-3.5 h-3.5"></i> Módulos Adicionales
-          </span>
-          <h2 class="text-3xl sm:text-5xl font-black text-white mt-3">
-            Suma Servicios a tu <span class="text-gradient-cyan">Página Web</span>
-          </h2>
-          <p class="mt-3 text-slate-300 text-base max-w-xl">
-            ¿Tu negocio necesita pedidos para delivery, reservas de turnos o redacción con IA? Activa estos módulos y agrégalos a tu cuota mensual.
+          <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">Contenido Educativo</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Guías Financieras y de Tecnología</h2>
+          <p class="text-slate-400 text-sm mt-2">Artículos redactados por el equipo de AppzPlay para ayudarte a tomar mejores decisiones financieras y digitales.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Artículo 1 -->
+        <article class="glass-card rounded-2xl overflow-hidden border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all">
+          <div class="p-6">
+            <span class="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md uppercase">Finanzas Personales</span>
+            <h3 class="text-lg font-bold text-white mt-3 leading-snug">
+              ¿Cómo se calcula la TRM oficial en Colombia y cuándo conviene comprar dólares?
+            </h3>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              La Tasa Representativa del Mercado (TRM) es calculada diariamente por la Superintendencia Financiera con base en las operaciones de compra y venta de divisas entre intermediarios financieros. Conocer los días de alta volatilidad te permite anticipar pagos de tarjetas y compras internacionales.
+            </p>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://dolar.appzplay.online/guias/mejor-momento-comprar-dolares-colombia" target="_blank" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              Leer guía completa <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Artículo 2 -->
+        <article class="glass-card rounded-2xl overflow-hidden border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all">
+          <div class="p-6">
+            <span class="text-[11px] font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-md uppercase">Tarjetas & Compras</span>
+            <h3 class="text-lg font-bold text-white mt-3 leading-snug">
+              Tarjetas de crédito y compras en dólares: Cuándo se liquida la tasa de cambio
+            </h3>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Al realizar compras en el extranjero o en plataformas como Amazon y suscripciones streaming, cada banco aplica una tasa de cambio en la fecha de facturación o corte. Te explicamos cómo evitar recargos sorpresa y cuál es el momento óptimo para pagar la cuota.
+            </p>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://dolar.appzplay.online/guias/compras-tarjeta-dolares-colombia" target="_blank" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              Leer guía completa <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Artículo 3 -->
+        <article class="glass-card rounded-2xl overflow-hidden border-white/10 flex flex-col justify-between hover:border-cyan-500/40 transition-all">
+          <div class="p-6">
+            <span class="text-[11px] font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md uppercase">Gaming & Comunidad</span>
+            <h3 class="text-lg font-bold text-white mt-3 leading-snug">
+              Cómo conseguir juegos legales gratuitos para PC de forma permanente
+            </h3>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Tiendas oficiales como Epic Games Store, Steam y GOG regalan títulos periódicamente. En FreeGames AppzPlay monitoreamos los anuncios oficiales para que puedas agregarlos a tu biblioteca para siempre sin gastar un solo centavo ni arriesgarte con piratería.
+            </p>
+          </div>
+          <div class="p-6 pt-0">
+            <a href="https://freegames.appzplay.online" target="_blank" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1">
+              Ver promociones activas <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ACERCA DE APPZPLAY (TRANSPARENCIA) -->
+  <section id="acerca" class="py-16 bg-[#090d16]/80 border-t border-white/5">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="glass-card rounded-3xl p-8 sm:p-12 border-white/10">
+        <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">Nuestra Misión</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Sobre la Red AppzPlay</h2>
+        <div class="mt-4 text-slate-300 text-sm leading-relaxed space-y-4">
+          <p>
+            <strong>AppzPlay</strong> nació con el objetivo de ofrecer herramientas web y plataformas en línea que sean rápidas, intuitivas y 100% libres de barreras innecesarias. Creemos que el acceso a datos cruciales del día a día —como el precio oficial de las divisas o el acceso a ofertas digitales— debe ser inmediato, sin registros forzosos ni interfaces sobrecargadas.
+          </p>
+          <p>
+            Nuestras aplicaciones están alojadas en servidores VPS dedicados con arquitectura moderna en contenedores, garantizando tiempos de carga de menos de 100 milisegundos y disponibilidad 24/7.
           </p>
         </div>
 
-        <div class="text-right hidden sm:block">
-          <span class="text-xs text-slate-400 block">Totalmente modulares:</span>
-          <span class="text-sm font-bold text-emerald-400">Enciende solo lo que tu negocio necesita</span>
-        </div>
-      </div>
-
-      <!-- Contenedor dinámico de servicios (los apagados NO se muestran) -->
-      <div id="dyn-services-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Renderizado dinámicamente desde content.json -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECTION 3: COMPARATIVA REAL -->
-  <section id="por-que-alquilar" class="py-20 relative bg-[#090d16]/80 border-t border-b border-white/10">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="badge-chip text-emerald-400 border-emerald-500/30 bg-emerald-950/40">
-          <i data-lucide="scale" class="w-3.5 h-3.5"></i> Comparativa Real
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">
-          Comprar una Web vs <span class="text-gradient-cyan">Alquilar en AppzPlay</span>
-        </h2>
-        <p class="mt-3 text-slate-300 text-base">
-          Mandar a hacer una página tradicionalmente es caro y riesgoso. Alquilar es la decisión financiera más inteligente.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <!-- Tradicional -->
-        <div class="glass-card-static rounded-3xl p-8 border-red-500/20 bg-gradient-to-b from-red-950/10 to-transparent">
-          <div class="text-red-400 text-xs font-bold uppercase mb-2">Comprar Desarrollo Web Tradicional</div>
-          <h3 class="text-2xl font-bold text-white mb-4">Alto Riesgo y Sobrecostos</h3>
-          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300">
-            <li class="flex items-start gap-2.5">
-              <span class="text-red-400 font-bold">✕</span>
-              <span>Pagas entre $1,000 y $3,000 USD por adelantado.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-red-400 font-bold">✕</span>
-              <span>Tú debes pagar servidores caros, dominios y renovaciones.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-red-400 font-bold">✕</span>
-              <span>Cualquier cambio o ajuste te lo cobran adicional.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-red-400 font-bold">✕</span>
-              <span>Si tu negocio cambia o cierras, perdiste toda la inversión.</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Modelo AppzPlay -->
-        <div class="glass-card rounded-3xl p-8 border-cyan-500/40 bg-gradient-to-b from-cyan-950/30 via-slate-900/70 to-slate-900/90 glow-cyan-border">
-          <div class="text-cyan-400 text-xs font-bold uppercase mb-2">Modelo de Alquiler AppzPlay</div>
-          <h3 class="text-2xl font-bold text-white mb-4">Control, Flexibilidad y $0 Deuda</h3>
-          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-200">
-            <li class="flex items-start gap-2.5">
-              <span class="text-cyan-400 font-bold">✔</span>
-              <span>$0 costo de diseño inicial. Pagas solo desde $15/mes.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-cyan-400 font-bold">✔</span>
-              <span>Hosting VPS ultrarrápido y certificado SSL 100% incluidos.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-cyan-400 font-bold">✔</span>
-              <span>Mantenimiento continuo y soporte directo por WhatsApp.</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-cyan-400 font-bold">✔</span>
-              <span>Puedes sumar o pausar servicios adicionales cuando gustes.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECTION 4: CALCULADORA DE CUOTA MENSUAL (WEB + SERVICIOS) -->
-  <section id="calculadora" class="py-20 relative bg-gradient-to-b from-[#07090e] via-[#0a0f1d] to-[#07090e] border-t border-b border-white/10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="badge-chip text-cyan-400 border-cyan-500/30 bg-cyan-950/40">
-          <i data-lucide="calculator" class="w-3.5 h-3.5"></i> Simulador de Alquiler
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">
-          Calcula tu <span class="text-gradient-cyan">Cuota Mensual</span>
-        </h2>
-        <p class="mt-3 text-slate-300 text-base">
-          Elige el plan de tu página web y marca los servicios adicionales que necesita tu negocio.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-12 gap-8 items-center">
-        <!-- Controles -->
-        <div class="md:col-span-7 glass-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-white/5 text-center">
           <div>
-            <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-2">1. Selecciona tu Plan de Página Web Base:</label>
-            <select id="calc-web-select" class="w-full bg-slate-900 border border-white/20 rounded-xl px-4 py-3 text-sm text-white font-bold focus:border-cyan-400">
-              <!-- Llenado dinámicamente -->
-            </select>
+            <div class="text-2xl font-black text-cyan-400">+2</div>
+            <div class="text-xs text-slate-400 mt-1">Plataformas Activas</div>
           </div>
-
           <div>
-            <label class="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-3">2. Suma Servicios Adicionales (Opcional):</label>
-            <div id="calc-addons-container" class="space-y-2.5">
-              <!-- Llenado dinámicamente con servicios activos -->
-            </div>
+            <div class="text-2xl font-black text-emerald-400">&lt;100ms</div>
+            <div class="text-xs text-slate-400 mt-1">Tiempo de Respuesta</div>
           </div>
-        </div>
-
-        <!-- Total Panel -->
-        <div class="md:col-span-5 glass-card rounded-3xl p-8 border-cyan-500/40 bg-gradient-to-b from-slate-900/90 via-cyan-950/20 to-slate-950/90 text-center glow-cyan-border">
-          <div class="text-xs uppercase tracking-widest font-extrabold text-cyan-400 mb-2">Tu Cuota Total de Alquiler</div>
-          <div id="calc-detail-display" class="text-xs text-slate-400 mb-4">Página Web Base</div>
-          
-          <div class="flex items-baseline justify-center gap-1 mb-6">
-            <span id="calc-total-display" class="text-5xl sm:text-6xl font-black text-white">$15</span>
-            <span class="text-slate-400 text-sm">USD / mes</span>
+          <div>
+            <div class="text-2xl font-black text-purple-400">100%</div>
+            <div class="text-xs text-slate-400 mt-1">Herramientas Gratuitas</div>
           </div>
-
-          <div class="p-4 rounded-xl bg-slate-950/80 border border-white/5 text-left text-xs space-y-2 text-slate-300">
-            <div class="flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✔</span>
-              <span>$0 de costo de desarrollo de inicio</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✔</span>
-              <span>Hosting VPS de alto rendimiento incluido</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="text-emerald-400 font-bold">✔</span>
-              <span>Sin contratos forzosos</span>
-            </div>
+          <div>
+            <div class="text-2xl font-black text-amber-400">99.9%</div>
+            <div class="text-xs text-slate-400 mt-1">Disponibilidad VPS</div>
           </div>
-
-          <button id="calc-wa-action" class="mt-6 w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black text-sm shadow-xl shadow-emerald-500/25 transition-transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
-            <span>Pedir este Alquiler por WhatsApp</span>
-          </button>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- SECTION 5: FAQ -->
-  <section id="faq" class="py-20 relative bg-[#090d16]/70 border-t border-white/10">
+  <!-- FAQ -->
+  <section id="faq" class="py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center mb-14">
-        <span class="badge-chip text-cyan-400 border-cyan-500/30 bg-cyan-950/40">
-          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Preguntas Frecuentes
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4">
-          Todo sobre el <span class="text-gradient-cyan">Alquiler de Páginas Web</span>
-        </h2>
-        <p class="mt-3 text-slate-300 text-sm sm:text-base">
-          Resolvemos tus preguntas sobre el modelo mensual y los servicios.
-        </p>
+      <div class="text-center mb-12">
+        <span class="text-cyan-400 text-xs font-bold uppercase tracking-widest">Resolución de Dudas</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Preguntas Frecuentes</h2>
       </div>
 
-      <div id="dyn-faq-container" class="space-y-4">
-        <!-- Renderizado dinámicamente -->
-      </div>
+      <div class="space-y-4 text-sm">
+        <div class="glass-card rounded-xl p-5 border-white/10">
+          <h3 class="font-bold text-white text-base">¿Las herramientas de AppzPlay tienen algún costo?</h3>
+          <p class="text-slate-300 mt-2 leading-relaxed">
+            No. Todas las herramientas públicas disponibles bajo los subdominios de AppzPlay (como el monitor de TRM en Dólar AppzPlay y el portal FreeGames) son 100% gratuitas y de acceso abierto para toda la comunidad.
+          </p>
+        </div>
 
-    </div>
-  </section>
+        <div class="glass-card rounded-xl p-5 border-white/10">
+          <h3 class="font-bold text-white text-base">¿De dónde provienen los datos financieros?</h3>
+          <p class="text-slate-300 mt-2 leading-relaxed">
+            Nuestra plataforma Dólar AppzPlay se sincroniza de forma automatizada con los datos abiertos de la Superintendencia Financiera de Colombia y el Banco de la República a través de datos.gov.co, garantizando precisión absoluta.
+          </p>
+        </div>
 
-  <!-- CTA FINAL -->
-  <section class="py-20 relative overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="glass-card rounded-3xl p-10 sm:p-14 text-center border-cyan-500/50 bg-gradient-to-r from-cyan-950/60 via-slate-900/90 to-purple-950/60 relative overflow-hidden glow-cyan-border">
-        
-        <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">
-          Ten tu página web profesional lista <br><span class="text-gradient-cyan">por una cuota mensual mínima</span>
-        </h2>
-        <p class="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
-          Escríbenos a WhatsApp. Diseñamos tu sitio, lo montamos en nuestro VPS de alta velocidad y sumas los módulos que tu negocio necesite.
-        </p>
-
-        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button onclick="openWhatsApp('¡Hola AppzPlay! Quiero conversar para alquilar una página web para mi negocio.')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-base shadow-xl shadow-cyan-500/30 transition-transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
-            <i data-lucide="message-circle" class="w-5 h-5"></i>
-            <span>Hablar con un Asesor por WhatsApp</span>
-          </button>
+        <div class="glass-card rounded-xl p-5 border-white/10">
+          <h3 class="font-bold text-white text-base">¿Cómo puedo sugerir una nueva herramienta para el ecosistema?</h3>
+          <p class="text-slate-300 mt-2 leading-relaxed">
+            Puedes escribirnos a nuestro correo de contacto o comunicarte a través de nuestros canales oficiales para proponernos nuevas utilidades que te gustaría ver en la red AppzPlay.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-white/10 bg-[#05070c] py-12 text-slate-400 text-xs">
+  <footer class="border-t border-white/10 bg-[#05070c] py-12 text-slate-400 text-xs mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         
@@ -437,26 +418,16 @@
             <span class="text-xl font-bold text-white tracking-tight">Appz<span class="text-cyan-400">Play</span></span>
           </div>
           <p class="text-slate-400 text-xs max-w-sm leading-relaxed">
-            Plataforma de alquiler de páginas web y servicios SaaS. Cero inversión inicial y cuotas mensuales accesibles para la comunidad.
+            Portal oficial y ecosistema digital de aplicaciones web, información de divisas en tiempo real y utilidades en línea para Colombia y Latinoamérica.
           </p>
         </div>
 
         <div>
-          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Servicios</h4>
+          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Red de Subdominios</h4>
           <ul class="space-y-2">
-            <li><a href="#web-alquiler" class="hover:text-cyan-400">Páginas Web en Alquiler</a></li>
-            <li><a href="#servicios-adicionales" class="hover:text-cyan-400">Módulos para Restaurantes</a></li>
-            <li><a href="#servicios-adicionales" class="hover:text-cyan-400">Módulos de Citas & Reservas</a></li>
-            <li><a href="#calculadora" class="hover:text-cyan-400">Simulador de Cuota</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-white text-xs uppercase tracking-wider mb-3">Ecosistema AppzPlay</h4>
-          <ul class="space-y-2">
-            <li><a href="https://dolar.appzplay.online" target="_blank" rel="noopener" class="text-emerald-400 hover:underline flex items-center gap-1.5"><i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Dólar TRM en Colombia</a></li>
-            <li><a href="https://freegames.appzplay.online" target="_blank" rel="noopener" class="text-cyan-400 hover:underline flex items-center gap-1.5"><i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i> FreeGames Promociones</a></li>
-            <li><a href="#calculadora" class="hover:text-cyan-400">Simulador de Cuota</a></li>
+            <li><a href="https://dolar.appzplay.online" target="_blank" rel="noopener" class="text-emerald-400 hover:underline flex items-center gap-1.5"><i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Dólar Colombia en Vivo</a></li>
+            <li><a href="https://freegames.appzplay.online" target="_blank" rel="noopener" class="text-purple-400 hover:underline flex items-center gap-1.5"><i data-lucide="gamepad-2" class="w-3.5 h-3.5"></i> FreeGames Promociones</a></li>
+            <li><span class="text-slate-500">Nuevas utilidades en camino</span></li>
           </ul>
         </div>
 
@@ -466,7 +437,7 @@
             <li><a href="/privacidad.html" class="hover:text-cyan-400">Política de Privacidad</a></li>
             <li><a href="/terminos.html" class="hover:text-cyan-400">Términos de Servicio</a></li>
             <li><a href="/ads.txt" class="hover:text-cyan-400">Declaración ads.txt</a></li>
-            <li><a href="/admin" class="text-slate-400 hover:underline flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5"></i> Panel de Control</a></li>
+            <li><span class="text-slate-500">contacto@appzplay.online</span></li>
           </ul>
         </div>
 
@@ -489,14 +460,15 @@
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <aside aria-label="Contacto directo" class="fixed bottom-6 right-6 z-50">
-    <button onclick="openWhatsApp('¡Hola AppzPlay! Quiero información para alquilar una página web para mi negocio.')" class="w-14 h-14 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all animate-pulse-glow" title="Chatear por WhatsApp">
-      <i data-lucide="message-circle" class="w-7 h-7"></i>
-    </button>
-  </aside>
-
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+  </script>
 </body>
 </html>
