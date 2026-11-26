@@ -44,8 +44,95 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/styles.css">
   
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%2306b6d4'/><text y='65' x='50' text-anchor='middle' font-size='55' fill='white' font-family='sans-serif' font-weight='bold'>A</text></svg>">
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+  <link rel="apple-touch-icon" href="/assets/icon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- Performance & Preconnects -->
+  <link rel="preconnect" href="https://dolar.appzplay.online">
+  <link rel="preconnect" href="https://freegames.appzplay.online">
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+
+  <!-- Schema.org Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://appzplay.online/#organization",
+        "name": "AppzPlay",
+        "url": "https://appzplay.online",
+        "logo": "https://appzplay.online/assets/icon.svg",
+        "description": "Ecosistema digital de herramientas web, información de divisas en tiempo real y entretenimiento en línea.",
+        "sameAs": [
+          "https://dolar.appzplay.online",
+          "https://freegames.appzplay.online"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://appzplay.online/#website",
+        "url": "https://appzplay.online",
+        "name": "AppzPlay",
+        "description": "Herramientas Web, Finanzas & Utilidades en Tiempo Real",
+        "publisher": {
+          "@id": "https://appzplay.online/#organization"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://appzplay.online/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Las herramientas de AppzPlay tienen algún costo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Todas las herramientas públicas disponibles bajo los subdominios de AppzPlay (como el monitor de TRM en Dólar AppzPlay y el portal FreeGames) son 100% gratuitas y de acceso abierto para toda la comunidad."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿De dónde provienen los datos financieros de Dólar AppzPlay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nuestra plataforma Dólar AppzPlay se sincroniza de forma automatizada con los datos abiertos de la Superintendencia Financiera de Colombia y el Banco de la República a través de datos.gov.co, garantizando precisión absoluta."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo puedo sugerir una nueva herramienta para el ecosistema?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puedes escribirnos a nuestro correo de contacto o comunicarte a través de nuestros canales oficiales para proponernos nuevas utilidades que te gustaría ver en la red AppzPlay."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Ecosistema de Plataformas y Subdominios AppzPlay",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Dólar & TRM Colombia Hoy",
+            "url": "https://dolar.appzplay.online"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "FreeGames AppzPlay",
+            "url": "https://freegames.appzplay.online"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-[#07090e] text-slate-100 cyber-grid relative min-h-screen flex flex-col font-sans">
 
